@@ -49,7 +49,7 @@
     <header class="fixed top-0 w-full z-50 bg-twBlanco/90 backdrop-blur-md border-b border-twNegro/5 h-20 flex items-center">
         <nav class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-4">
-                <img src="imagenes/logo.png" alt="TECHNO WORLD" class="h-12">
+                <img src="logo.png" alt="TECHNO WORLD" class="h-12">
                 <span class="text-xl font-display font-extrabold text-twAzul tracking-tight">TECHNO WORLD</span>
             </div>
             <ul class="hidden md:flex items-center gap-10 font-medium text-twNegro/70">
@@ -180,7 +180,7 @@
         <div class="container mx-auto px-6 grid md:grid-cols-4 gap-16 mb-20">
             <div class="col-span-1 md:col-span-1">
                 <div class="flex items-center gap-3 mb-8">
-                    <img src="imagenes/logo.png" alt="Logo" class="h-10">
+                    <img src="logo.png" alt="Logo" class="h-10">
                     <span class="text-xl font-display font-extrabold tracking-tight">TECHNO WORLD</span>
                 </div>
                 <p class="text-twBlanco/40 leading-relaxed">Liderando la innovación tecnológica con compromiso y excelencia técnica desde 2010.</p>
