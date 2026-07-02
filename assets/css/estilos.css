@@ -106,6 +106,35 @@ html.dark {
 
 html { transition: color 0.3s ease, background-color 0.3s ease; }
 
+/* ----- BRAND FONT ----- */
+.brand-font {
+  font-family: 'ND Logos', sans-serif;
+}
+
+/* ----- DARK MODE GLOBAL TWEAKS ----- */
+html.dark .text-twAzul {
+  color: var(--accent-400);
+}
+
+/* ----- AZUL ENCENDIDO EN HOVER ----- */
+.hover\:text-twAzul:hover {
+  color: var(--accent-400) !important;
+  text-shadow: 0 0 12px rgba(74, 144, 226, 0.4);
+}
+.btn-primary:hover {
+  background: var(--accent-400);
+  box-shadow: 0 8px 30px rgba(74, 144, 226, 0.4) !important;
+}
+.btn-primary:hover::before { opacity: 0; }
+.btn-outline-light:hover {
+  border-color: var(--accent-400) !important;
+  box-shadow: 0 8px 30px rgba(74, 144, 226, 0.3) !important;
+}
+#clientes .rounded-2xl:hover {
+  border-color: rgba(74, 144, 226, 0.35) !important;
+  box-shadow: 0 8px 30px rgba(74, 144, 226, 0.25) !important;
+}
+
 /* ----- HERO ----- */
 .hero-pattern {
   background-color: #0d0d18;
@@ -133,7 +162,7 @@ html { transition: color 0.3s ease, background-color 0.3s ease; }
 
 /* ----- BUTTONS ----- */
 .btn-primary {
-  background: var(--gradient-primary);
+  background: var(--azul-500);
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
   overflow: hidden;
@@ -142,7 +171,7 @@ html { transition: color 0.3s ease, background-color 0.3s ease; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  background: var(--accent-400);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -150,7 +179,7 @@ html { transition: color 0.3s ease, background-color 0.3s ease; }
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(63, 89, 129, 0.3);
 }
-.btn-primary:hover::before { opacity: 1; }
+.btn-primary:hover::before { opacity: 0.15; }
 
 .btn-outline-light {
   border: 2px solid rgba(230, 230, 230, 0.3);
@@ -192,15 +221,15 @@ html { transition: color 0.3s ease, background-color 0.3s ease; }
 }
 .card-service:hover {
   transform: translateY(-10px);
-  box-shadow: 0 24px 60px rgba(63, 89, 129, 0.12);
-  border-color: rgba(63, 89, 129, 0.2);
+  box-shadow: 0 24px 60px rgba(74, 144, 226, 0.2);
+  border-color: rgba(74, 144, 226, 0.35);
 }
 .card-service:hover::before {
   opacity: 1;
 }
 .card-service:hover .service-icon {
   transform: scale(1.1) rotate(-5deg);
-  background: rgba(63, 89, 129, 0.15);
+  background: rgba(74, 144, 226, 0.2);
 }
 .service-icon {
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
@@ -465,6 +494,14 @@ footer a::after {
 }
 footer a:hover::after {
   width: 100%;
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+#mobileMenu {
+  top: 80px;
+  height: calc(100vh - 80px);
 }
 
 /* ============================================================

@@ -58,8 +58,11 @@
         <nav class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-4">
                 <img src="assets/img/LOGO TW PERFIL 2.png" alt="TECHNO WORLD" class="h-12 w-auto" id="logoHeader">
-                <span class="text-xl font-display font-extrabold text-twAzul tracking-tight">TECHNO WORLD</span>
+                <span class="text-xl brand-font font-extrabold tracking-tight"><span class="text-twNegro dark:text-white">TECHNO</span> <span class="text-white">WORLD</span></span>
             </div>
+            <button id="menuToggle" class="md:hidden text-2xl text-twMuted dark:text-white hover:text-twAzul transition-colors p-2" aria-label="Menú">
+                <ion-icon name="menu-outline"></ion-icon>
+            </button>
             <ul class="hidden md:flex items-center gap-8 font-medium text-twMuted dark:text-white">
                 <li><a href="#inicio" class="hover:text-twAzul transition-colors">Inicio</a></li>
                 <li><a href="#servicios" class="hover:text-twAzul transition-colors">Servicios</a></li>
@@ -74,6 +77,21 @@
                 </li>
             </ul>
         </nav>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="fixed inset-0 z-40 bg-[var(--header-bg)] backdrop-blur-xl md:hidden translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex flex-col items-center justify-center h-full gap-8 text-lg font-medium">
+                <a href="#inicio" class="mobile-link text-twMuted dark:text-white hover:text-twAzul transition-colors">Inicio</a>
+                <a href="#servicios" class="mobile-link text-twMuted dark:text-white hover:text-twAzul transition-colors">Servicios</a>
+                <a href="#clientes" class="mobile-link text-twMuted dark:text-white hover:text-twAzul transition-colors">Clientes</a>
+                <a href="#empresa" class="mobile-link text-twMuted dark:text-white hover:text-twAzul transition-colors">Empresa</a>
+                <a href="#ubicacion" class="mobile-link text-twMuted dark:text-white hover:text-twAzul transition-colors">Ubicación</a>
+                <a href="#contacto" class="btn-primary text-white px-10 py-3 rounded-xl text-base">Contacto</a>
+                <button id="mobileThemeToggle" class="flex items-center gap-3 text-twMuted dark:text-white hover:text-twAzul transition-colors mt-4 text-base" aria-label="Cambiar tema">
+                    <ion-icon name="moon-outline" class="text-xl"></ion-icon>
+                    <span>Modo Oscuro</span>
+                </button>
+            </div>
+        </div>
     </header>
     <main>
         <!-- Hero Section -->
@@ -81,7 +99,8 @@
             <video autoplay loop muted playsinline poster="assets/img/portada.gif">
                 <source src="assets/img/portada.mp4" type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-br from-[rgba(26,26,46,0.6)] to-[rgba(63,89,129,0.55)] z-[1]"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-[rgba(26,26,46,0.75)] to-[rgba(63,89,129,0.65)] z-[1]"></div>
+            <div class="absolute inset-0 bg-[rgba(0,0,0,0.15)] z-[1]"></div>
             <!-- Animated tech elements -->
             <div class="hero-grid"></div>
             <div class="scan-line"></div>
@@ -97,8 +116,8 @@
             <div class="mouse-glow" id="mouseGlow"></div>
             <canvas id="techCanvas" class="absolute inset-0 z-[2] pointer-events-none w-full h-full"></canvas>
             <div class="container mx-auto px-6 relative z-10 text-center">
-                <div class="inline-block px-6 py-2 border border-twAzul/50 rounded-full text-twAzul text-sm font-semibold uppercase tracking-[0.2em] mb-8 bg-twAzul/10 backdrop-blur-sm reveal">Excelencia Tecnológica</div>
-                <h1 class="hero-title text-5xl md:text-7xl font-display font-extrabold mb-6 leading-tight reveal">Expertos en <span class="text-twAzul">Sistemas</span> y Soluciones TI</h1>
+                <div class="inline-block px-6 py-2 border border-white/30 rounded-full text-white text-sm font-semibold uppercase tracking-[0.2em] mb-8 bg-white/10 backdrop-blur-sm reveal">Excelencia Tecnológica</div>
+                <h1 class="hero-title text-5xl md:text-7xl font-display font-extrabold mb-6 leading-tight reveal">Expertos en <span class="text-twAccent">Sistemas</span> y Soluciones TI</h1>
                 <p class="text-2xl md:text-3xl font-display font-bold text-twBlanco/90 max-w-3xl mx-auto mb-6 reveal">TODO UN MUNDO EN TECNOLOGIA</p>
                 <div class="flex justify-center mb-12 reveal">
                     <div class="section-divider"></div>
@@ -179,11 +198,11 @@
                     <div>
                         <h3 class="text-center text-twAzul font-bold uppercase tracking-[0.2em] text-sm mb-10 reveal">Clientes</h3>
                         <div class="grid grid-cols-2 gap-8">
-                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-twAzul/10 hover:-translate-y-1 transition-all">
+                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1 hover:border-accent/30 transition-all">
                                 <img src="assets/img/clientes/centro_medico_diaz.jpg" alt="Centro Médico Díaz" class="h-16 w-auto object-contain mb-4">
                                 <p class="font-bold text-twText text-center">Centro Médico Díaz</p>
                             </div>
-                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-twAzul/10 hover:-translate-y-1 transition-all">
+                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1 hover:border-accent/30 transition-all">
                                 <img src="assets/img/clientes/inversiones_rivera_carvajal.png" alt="Inversiones Rivera Carvajal" class="h-16 w-auto object-contain mb-4">
                                 <p class="font-bold text-twText text-center">Inversiones Rivera Carvajal</p>
                             </div>
@@ -192,11 +211,11 @@
                     <div class="border-t border-twBorder pt-16">
                         <h3 class="text-center text-twAzul font-bold uppercase tracking-[0.2em] text-sm mb-10 reveal">Socios Estratégicos</h3>
                         <div class="grid grid-cols-2 gap-8">
-                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-twAzul/10 hover:-translate-y-1 transition-all">
+                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1 hover:border-accent/30 transition-all">
                                 <img src="assets/img/clientes/DEVCO.jpeg" alt="DEVCO" class="h-16 w-auto object-contain mb-4">
                                 <p class="font-bold text-twText text-center">DEVCO</p>
                             </div>
-                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-twAzul/10 hover:-translate-y-1 transition-all">
+                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1 hover:border-accent/30 transition-all">
                                 <img src="assets/img/clientes/syntax.jpg" alt="SYNTAX" class="h-16 w-auto object-contain mb-4">
                                 <p class="font-bold text-twText text-center">SYNTAX</p>
                             </div>
@@ -364,9 +383,9 @@
             <div class="col-span-1 md:col-span-1">
                 <div class="flex items-center gap-3 mb-8">
                     <img src="assets/img/LOGO TW PERFIL 2.png" alt="Logo" class="h-10 w-auto brightness-0 invert">
-                    <span class="text-xl font-display font-extrabold tracking-tight">TECHNO WORLD</span>
+                    <span class="text-xl brand-font font-extrabold tracking-tight">TECHNO WORLD</span>
                 </div>
-                <p class="text-twBlanco/40 leading-relaxed">Liderando la innovación tecnológica con compromiso y excelencia técnica desde 2010.</p>
+                <p class="text-twBlanco/70 leading-relaxed">Liderando la innovación tecnológica con compromiso y excelencia técnica desde 2016.</p>
                 <div class="flex gap-4 mt-8">
                     <a href="https://www.facebook.com/technoworldhn" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-twBlanco/10 flex items-center justify-center hover:bg-twAzul transition-all">
                         <ion-icon name="logo-facebook" class="text-lg"></ion-icon>
@@ -377,8 +396,8 @@
                 </div>
             </div>
             <div>
-                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs text-twAzul">Navegación</h4>
-                <ul class="space-y-4 text-twBlanco/60">
+                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs text-twAccent">Navegación</h4>
+                <ul class="space-y-4 text-twBlanco/80">
                     <li><a href="#inicio" class="hover:text-twBlanco transition-colors">Inicio</a></li>
                     <li><a href="#servicios" class="hover:text-twBlanco transition-colors">Servicios</a></li>
                     <li><a href="#clientes" class="hover:text-twBlanco transition-colors">Clientes</a></li>
@@ -388,22 +407,22 @@
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs text-twAzul">Servicios</h4>
-                <ul class="space-y-4 text-twBlanco/60">
+                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs text-twAccent">Servicios</h4>
+                <ul class="space-y-4 text-twBlanco/80">
                     <li>Reparación y Mantenimiento</li>
                     <li>Desarrollo de Sistemas</li>
                     <li>Soporte Técnico</li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs text-twAzul">Legal</h4>
-                <ul class="space-y-4 text-twBlanco/60">
+                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs text-twAccent">Legal</h4>
+                <ul class="space-y-4 text-twBlanco/80">
                     <li>Privacidad</li>
                     <li>Términos de Uso</li>
                 </ul>
             </div>
         </div>
-        <div class="container mx-auto px-6 pt-12 border-t border-twBlanco/5 text-center text-twBlanco/20 text-xs font-bold uppercase tracking-[0.3em]">
+        <div class="container mx-auto px-6 pt-12 border-t border-twBlanco/10 text-center text-twBlanco/40 text-xs font-bold uppercase tracking-[0.3em]">
             &copy; 2026 TECHNO WORLD. Todos los derechos reservados.
         </div>
     </footer>
@@ -419,21 +438,50 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // Mobile menu toggle
+            const menuToggle = document.getElementById("menuToggle");
+            const mobileMenu = document.getElementById("mobileMenu");
+            const menuIcon = menuToggle.querySelector("ion-icon");
+            const mobileLinks = document.querySelectorAll(".mobile-link");
+            menuToggle.addEventListener("click", () => {
+                const open = mobileMenu.classList.toggle("translate-x-full");
+                menuIcon.name = open ? "menu-outline" : "close-outline";
+            });
+            mobileLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("translate-x-full");
+                    menuIcon.name = "menu-outline";
+                });
+            });
+
             // Theme toggle
             const html = document.documentElement;
             const toggle = document.getElementById("themeToggle");
             const icon = toggle.querySelector("ion-icon");
             const logoH = document.getElementById("logoHeader");
+            const mobileToggle = document.getElementById("mobileThemeToggle");
+            const mobileIcon = mobileToggle.querySelector("ion-icon");
+            const mobileLabel = mobileToggle.querySelector("span");
             function updateLogo(isDark) {
                 logoH.classList.toggle("brightness-0", isDark);
                 logoH.classList.toggle("invert", isDark);
             }
+            function applyTheme(isDark) {
+                icon.name = isDark ? "sunny-outline" : "moon-outline";
+                mobileIcon.name = isDark ? "sunny-outline" : "moon-outline";
+                mobileLabel.textContent = isDark ? "Modo Claro" : "Modo Oscuro";
+                updateLogo(isDark);
+            }
             const saved = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-            if (saved === "dark") { html.classList.add("dark"); icon.name = "sunny-outline"; updateLogo(true); }
+            if (saved === "dark") { html.classList.add("dark"); applyTheme(true); }
             toggle.addEventListener("click", () => {
                 const isDark = html.classList.toggle("dark");
-                icon.name = isDark ? "sunny-outline" : "moon-outline";
-                updateLogo(isDark);
+                applyTheme(isDark);
+                localStorage.setItem("theme", isDark ? "dark" : "light");
+            });
+            mobileToggle.addEventListener("click", () => {
+                const isDark = html.classList.toggle("dark");
+                applyTheme(isDark);
                 localStorage.setItem("theme", isDark ? "dark" : "light");
             });
 
