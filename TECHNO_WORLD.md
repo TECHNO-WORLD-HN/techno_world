@@ -36,7 +36,7 @@ Página web corporativa estática tipo landing page para **TECHNO WORLD**, empre
 
 ### 1. Navbar (`<header>`)
 - Logo + nombre "TECHNO WORLD"
-- Navegación completa: Inicio, Servicios, Clientes, Empresa, [Ubicación], **[Contacto]** (botón destacado gradiente)
+- Navegación completa: Inicio, Servicios, Clientes, **Testimonios**, Empresa, [Ubicación], **[Contacto]** (botón destacado gradiente)
 - Toggle modo oscuro/claro con persistencia en localStorage + detección de preferencia del sistema
 - Fondo semitransparente con blur (`backdrop-blur-md`), fijo arriba
 
@@ -61,9 +61,10 @@ Página web corporativa estática tipo landing page para **TECHNO WORLD**, empre
 - Tarjetas con hover elevación y sombra
 
 ### 5. Testimonios (`#testimonios`)
-- Panel de opiniones de Google Maps con promedio 4.7/5.0
-- 3 tarjetas con valoraciones de clientes reales vinculados a los logos principales
-- Botón destacado que enlaza a Google Maps
+- Panel de opiniones de Google Maps con promedio de calificación de **4.7/5.0** (4 estrellas completas y 1 media estrella)
+- 3 tarjetas con las opiniones reales e idénticas a las reseñas de Google Maps de **Victor Euceda**, **Eduardo Moreno** y **Luis S. Cruz**
+- Iniciales y colores de avatar personalizados inspirados en las cuentas reales de Google
+- Botón destacado "Ver opiniones en Google Maps" que redirige al listado oficial
 
 ### 6. Empresa / ADN (`#empresa`)
 - Fondo oscuro con misión, visión y contador "150+ Proyectos Exitosos"
