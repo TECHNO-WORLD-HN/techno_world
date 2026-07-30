@@ -60,18 +60,23 @@ Página web corporativa estática tipo landing page para **TECHNO WORLD**, empre
 - Socios Estratégicos: DEVCO, SYNTAX
 - Tarjetas con hover elevación y sombra
 
-### 5. Empresa / ADN (`#empresa`)
+### 5. Testimonios (`#testimonios`)
+- Panel de opiniones de Google Maps con promedio 4.7/5.0
+- 3 tarjetas con valoraciones de clientes reales vinculados a los logos principales
+- Botón destacado que enlaza a Google Maps
+
+### 6. Empresa / ADN (`#empresa`)
 - Fondo oscuro con misión, visión y contador "150+ Proyectos Exitosos"
 
-### 6. Contacto (`#contacto`)
+### 7. Contacto (`#contacto`)
 - Panel izquierdo azul con datos de contacto y redes sociales (Facebook, Instagram)
 - Panel derecho con formulario: Nombre, Correo, Teléfono, Tipo de Consulta, Mensaje
 - Envío vía fetch AJAX a `send.php` con feedback visual
 
-### 7. Ubicación (`#ubicacion`)
+### 8. Ubicación (`#ubicacion`)
 - Google Maps embed + tarjeta informativa con dirección, teléfono, email
 
-### 8. Footer
+### 9. Footer
 - Logo + descripción, navegación completa, servicios, legal
 - Redes sociales, copyright 2026
 
@@ -152,4 +157,3 @@ Página web corporativa estática tipo landing page para **TECHNO WORLD**, empre
 - Configurar PHPMailer + SMTP para envío de correos en producción
 - Optimizar portada.gif → convertir a WebM para mejor compresión
 - Implementar lazy loading en imágenes de clientes
-- Agregar sección de testimonios
