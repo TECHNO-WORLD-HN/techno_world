@@ -2,9 +2,12 @@
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECHNO WORLD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>TECHNO WORLD — Soluciones TI, Reparación y Desarrollo de Sistemas</title>
+    <meta name="description" content="Servicios tecnológicos profesionales en Catacamas, Olancho: reparación de computadoras, desarrollo de sistemas a medida y soporte técnico corporativo.">
     <link rel="icon" type="image/png" href="assets/img/LOGO%20TW%20PERFIL%202.png">
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,33 +19,29 @@
                         twNegro: "#323232",
                         twBlanco: "#e6e6e6",
                         twAccent: "#4A90E2",
+                        twCyan: "#38bdf8",
                         twText: "var(--text-body)",
+                        twHeading: "var(--text-heading)",
                         twBg: "var(--bg-body)",
                         twCard: "var(--bg-card)",
+                        twCardAlt: "var(--bg-card-alt)",
                         twMuted: "var(--text-muted)",
                         twDim: "var(--text-dim)",
-                        twFaint: "var(--text-faint)",
                         twBorder: "var(--border-subtle)",
                         azul: {
-                            50: "#eef2f7", 100: "#d4dce9", 200: "#a9bbd3",
-                            300: "#7d9abc", 400: "#5e7ea5", 500: "#3f5981",
-                            600: "#324668", 700: "#25334d", 800: "#182133", 900: "#0b1019",
+                            50: "#f0f4f9", 100: "#dbe4f0", 200: "#b8cbe1",
+                            300: "#8eaecf", 400: "#628ebe", 500: "#3f5981",
+                            600: "#324767", 700: "#26364e", 800: "#1a2535", 900: "#0e141d",
                         },
                         accent: {
                             50: "#e8f4fd", 100: "#c8e6fa", 200: "#92cef5",
                             300: "#5bb5f0", 400: "#4A90E2", 500: "#3a7bd5",
                             600: "#2d62b0", 700: "#20498b", 800: "#133166", 900: "#0a1a3a",
-                        },
-                        neutro: {
-                            50: "#f8f8f8", 100: "#efefef", 200: "#dcdcdc",
-                            300: "#bdbdbd", 400: "#989898", 500: "#6f6f6f",
-                            600: "#505050", 700: "#323232", 800: "#252525",
-                            900: "#171717", 950: "#0f0f0f",
-                        },
+                        }
                     },
                     fontFamily: {
-                        sans: ["Inter", "sans-serif"],
-                        display: ["Plus Jakarta Sans", "sans-serif"],
+                        sans: ["Inter", "system-ui", "sans-serif"],
+                        display: ["Plus Jakarta Sans", "Inter", "sans-serif"],
                     }
                 }
             }
@@ -51,768 +50,1086 @@
     <link rel="stylesheet" href="assets/css/fuentes.css">
     <link rel="stylesheet" href="assets/css/estilos.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
-<body class="bg-twBg text-twText font-sans">
-    <!-- Navbar -->
-    <header class="fixed top-0 w-full z-50 bg-[var(--header-bg)] backdrop-blur-md border-b border-twBorder h-20 flex items-center">
-        <nav class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <img src="assets/img/LOGO TW PERFIL 2.png" alt="TECHNO WORLD" class="h-12 w-auto" id="logoHeader">
-                <span class="text-xl brand-font font-extrabold tracking-tight"><span class="text-twNegro dark:text-white">TECHNO</span> <span style="color: var(--color-world)">WORLD</span></span>
-            </div>
-            <button id="menuToggle" class="md:hidden text-2xl text-twMuted dark:text-white hover:text-twAzul transition-colors p-2" aria-label="Menú">
-                <ion-icon name="menu-outline"></ion-icon>
-            </button>
-            <ul class="hidden md:flex items-center gap-8 font-medium text-twMuted dark:text-white">
-                <li><a href="#inicio" class="hover:text-twAzul transition-colors">Inicio</a></li>
-                <li><a href="#servicios" class="hover:text-twAzul transition-colors">Servicios</a></li>
-                <li><a href="#clientes" class="hover:text-twAzul transition-colors">Clientes</a></li>
-                <li><a href="#testimonios" class="hover:text-twAzul transition-colors">Testimonios</a></li>
-                <li><a href="#empresa" class="hover:text-twAzul transition-colors">Empresa</a></li>
-                <li><a href="#ubicacion" class="hover:text-twAzul transition-colors">Ubicación</a></li>
-                <li><a href="#contacto" class="btn-primary text-white px-6 py-2.5 rounded-lg">Contacto</a></li>
-                <li>
-                    <button id="themeToggle" class="text-xl text-twMuted dark:text-white hover:text-twAzul transition-colors p-2" aria-label="Cambiar tema">
-                        <ion-icon name="moon-outline"></ion-icon>
-                    </button>
-                </li>
+<body class="bg-[var(--bg-body)] text-[var(--text-body)] font-sans antialiased selection:bg-azul-500 selection:text-white">
+
+    <!-- Header / Top Navbar -->
+    <header class="fixed top-0 w-full z-50 bg-[var(--header-bg)] backdrop-blur-xl border-b border-[var(--border-subtle)] h-20 transition-colors duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#inicio" class="flex items-center gap-3.5 group focus:outline-none" aria-label="TECHNO WORLD Inicio">
+                <div class="relative w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-transparent border border-slate-200 dark:border-transparent overflow-hidden shadow-sm dark:shadow-none transition-colors">
+                    <img src="assets/img/LOGO%20TW%20PERFIL%202.png" alt="TECHNO WORLD" class="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-110 dark:brightness-0 dark:invert" id="logoHeader">
+                </div>
+                <span class="text-xl brand-font font-extrabold tracking-tight">
+                    <span class="text-slate-900 dark:text-white transition-colors">TECHNO</span>
+                    <span class="text-azul-500 dark:text-white transition-colors">WORLD</span>
+                </span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <ul class="hidden lg:flex items-center gap-7 font-medium text-sm text-[var(--text-muted)]">
+                <li><a href="#inicio" class="hover:text-azul-500 dark:hover:text-cyan-400 transition-colors py-2">Inicio</a></li>
+                <li><a href="#servicios" class="hover:text-azul-500 dark:hover:text-cyan-400 transition-colors py-2">Servicios</a></li>
+                <li><a href="#clientes" class="hover:text-azul-500 dark:hover:text-cyan-400 transition-colors py-2">Clientes</a></li>
+                <li><a href="#testimonios" class="hover:text-azul-500 dark:hover:text-cyan-400 transition-colors py-2">Testimonios</a></li>
+                <li><a href="#empresa" class="hover:text-azul-500 dark:hover:text-cyan-400 transition-colors py-2">Empresa</a></li>
+                <li><a href="#ubicacion" class="hover:text-azul-500 dark:hover:text-cyan-400 transition-colors py-2">Ubicación</a></li>
             </ul>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="fixed inset-0 z-40 bg-[var(--header-bg)] backdrop-blur-xl md:hidden translate-x-full transition-transform duration-300 ease-in-out">
-            <div class="flex flex-col items-center justify-center h-full gap-8 text-lg font-medium">
-                <a href="#inicio" class="mobile-link text-twMuted dark:text-white hover:text-twAzul transition-colors">Inicio</a>
-                <a href="#servicios" class="mobile-link text-twMuted dark:text-white hover:text-twAzul transition-colors">Servicios</a>
-                <a href="#clientes" class="mobile-link text-twMuted dark:text-white hover:text-twAzul transition-colors">Clientes</a>
-                <a href="#testimonios" class="mobile-link text-twMuted dark:text-white hover:text-twAzul transition-colors">Testimonios</a>
-                <a href="#empresa" class="mobile-link text-twMuted dark:text-white hover:text-twAzul transition-colors">Empresa</a>
-                <a href="#ubicacion" class="mobile-link text-twMuted dark:text-white hover:text-twAzul transition-colors">Ubicación</a>
-                <a href="#contacto" class="btn-primary text-white px-10 py-3 rounded-xl text-base">Contacto</a>
-                <button id="mobileThemeToggle" class="flex items-center gap-3 text-twMuted dark:text-white hover:text-twAzul transition-colors mt-4 text-base" aria-label="Cambiar tema">
+
+            <!-- Header Action Controls -->
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" class="w-10 h-10 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-muted)] hover:text-azul-500 dark:hover:text-cyan-400 flex items-center justify-center transition-all shadow-sm focus:outline-none" aria-label="Cambiar tema de color">
                     <ion-icon name="moon-outline" class="text-xl"></ion-icon>
-                    <span>Modo Oscuro</span>
                 </button>
+
+                <!-- Desktop CTA Button -->
+                <a href="#contacto" class="hidden sm:inline-flex btn-primary text-sm">
+                    <span>Contactar</span>
+                    <ion-icon name="arrow-forward-outline" class="text-base"></ion-icon>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuToggle" class="lg:hidden w-10 h-10 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-heading)] flex items-center justify-center transition-colors focus:outline-none" aria-label="Abrir Menú de Navegación">
+                    <ion-icon name="menu-outline" class="text-2xl"></ion-icon>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileMenu" class="fixed inset-x-0 top-20 bottom-0 bg-[var(--header-bg)] backdrop-blur-2xl lg:hidden translate-x-full transition-transform duration-300 ease-in-out border-t border-[var(--border-subtle)] z-40 overflow-y-auto px-6 py-8 flex flex-col justify-between">
+            <div class="space-y-4">
+                <div class="text-xs font-semibold uppercase tracking-wider text-[var(--text-dim)] px-3 mb-2">Navegación</div>
+                <a href="#inicio" class="mobile-link flex items-center justify-between p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] font-medium text-base text-[var(--text-heading)] hover:border-azul-500">
+                    <span class="flex items-center gap-3"><ion-icon name="home-outline" class="text-azul-500 text-xl"></ion-icon>Inicio</span>
+                    <ion-icon name="chevron-forward-outline" class="text-sm text-[var(--text-dim)]"></ion-icon>
+                </a>
+                <a href="#servicios" class="mobile-link flex items-center justify-between p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] font-medium text-base text-[var(--text-heading)] hover:border-azul-500">
+                    <span class="flex items-center gap-3"><ion-icon name="hardware-chip-outline" class="text-azul-500 text-xl"></ion-icon>Servicios</span>
+                    <ion-icon name="chevron-forward-outline" class="text-sm text-[var(--text-dim)]"></ion-icon>
+                </a>
+                <a href="#clientes" class="mobile-link flex items-center justify-between p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] font-medium text-base text-[var(--text-heading)] hover:border-azul-500">
+                    <span class="flex items-center gap-3"><ion-icon name="people-outline" class="text-azul-500 text-xl"></ion-icon>Clientes y Socios</span>
+                    <ion-icon name="chevron-forward-outline" class="text-sm text-[var(--text-dim)]"></ion-icon>
+                </a>
+                <a href="#testimonios" class="mobile-link flex items-center justify-between p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] font-medium text-base text-[var(--text-heading)] hover:border-azul-500">
+                    <span class="flex items-center gap-3"><ion-icon name="star-outline" class="text-yellow-500 text-xl"></ion-icon>Opiniones Google</span>
+                    <ion-icon name="chevron-forward-outline" class="text-sm text-[var(--text-dim)]"></ion-icon>
+                </a>
+                <a href="#empresa" class="mobile-link flex items-center justify-between p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] font-medium text-base text-[var(--text-heading)] hover:border-azul-500">
+                    <span class="flex items-center gap-3"><ion-icon name="business-outline" class="text-azul-500 text-xl"></ion-icon>Empresa</span>
+                    <ion-icon name="chevron-forward-outline" class="text-sm text-[var(--text-dim)]"></ion-icon>
+                </a>
+                <a href="#ubicacion" class="mobile-link flex items-center justify-between p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] font-medium text-base text-[var(--text-heading)] hover:border-azul-500">
+                    <span class="flex items-center gap-3"><ion-icon name="location-outline" class="text-azul-500 text-xl"></ion-icon>Ubicación</span>
+                    <ion-icon name="chevron-forward-outline" class="text-sm text-[var(--text-dim)]"></ion-icon>
+                </a>
+            </div>
+
+            <div class="pt-8 border-t border-[var(--border-subtle)] space-y-4">
+                <a href="#contacto" class="mobile-link w-full btn-primary justify-center text-center font-bold">
+                    <span>Contactar Asesor TI</span>
+                    <ion-icon name="paper-plane-outline"></ion-icon>
+                </a>
+                <div class="flex items-center justify-between p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]">
+                    <span class="text-sm font-medium text-[var(--text-heading)]">Tema de pantalla</span>
+                    <button id="mobileThemeToggle" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--bg-card-alt)] text-sm font-semibold text-azul-500 dark:text-cyan-400">
+                        <ion-icon name="moon-outline"></ion-icon>
+                        <span>Modo Oscuro</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
+
     <main>
         <!-- Hero Section -->
-        <section id="inicio" class="hero-pattern min-h-screen flex items-center text-white relative overflow-hidden">
+        <section id="inicio" class="hero-pattern min-h-screen pt-24 pb-16 flex items-center text-white relative">
             <video autoplay loop muted playsinline poster="assets/img/portada.gif">
                 <source src="assets/img/portada.mp4" type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-br from-[rgba(26,26,46,0.75)] to-[rgba(63,89,129,0.65)] z-[1]"></div>
-            <div class="absolute inset-0 bg-[rgba(0,0,0,0.15)] z-[1]"></div>
-            <!-- Animated tech elements -->
+            
+            <div class="hero-overlay"></div>
             <div class="hero-grid"></div>
-            <div class="scan-line"></div>
-            <div class="tech-shape tech-shape-1"></div>
-            <div class="tech-shape tech-shape-2"></div>
-            <div class="tech-shape tech-shape-3"></div>
-            <div class="tech-shape tech-shape-4"></div>
-            <div class="tech-dot"></div>
-            <div class="tech-dot"></div>
-            <div class="tech-dot"></div>
-            <div class="tech-dot"></div>
-            <div class="tech-dot"></div>
             <div class="mouse-glow" id="mouseGlow"></div>
             <canvas id="techCanvas" class="absolute inset-0 z-[2] pointer-events-none w-full h-full"></canvas>
-            <div class="container mx-auto px-6 relative z-10 text-center">
-                <div class="inline-block px-6 py-2 border border-white/30 rounded-full text-white text-sm font-semibold uppercase tracking-[0.2em] mb-8 bg-white/10 backdrop-blur-sm reveal">Excelencia Tecnológica</div>
-                <h1 class="hero-title text-5xl md:text-7xl font-display font-extrabold mb-6 leading-tight reveal">Expertos en <span class="text-twAccent">Sistemas</span> y Soluciones TI</h1>
-                <p class="text-2xl md:text-3xl font-display font-bold text-twBlanco/90 max-w-3xl mx-auto mb-6 reveal">TODO UN MUNDO EN TECNOLOGIA</p>
-                <div class="flex justify-center mb-12 reveal">
-                    <div class="section-divider"></div>
-                </div>
-                <p class="text-lg md:text-xl text-twBlanco/70 max-w-2xl mx-auto mb-12 reveal">Impulsamos la productividad de tu organización con servicios técnicos especializados de clase mundial.</p>
-                <div class="flex flex-col sm:flex-row gap-6 justify-center reveal">
-                    <a href="#servicios" class="btn-primary px-10 py-4 rounded-xl font-bold text-lg">Nuestros Servicios</a>
-                    <a href="#contacto" class="btn-outline-light px-10 py-4 rounded-xl font-bold text-lg">Contacto</a>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12">
+                <div class="max-w-3xl mx-auto text-center">
+                    
+                    <!-- Live Status Badge -->
+                    <div class="inline-flex items-center tech-badge mb-6 reveal">
+                        <span class="pulse-dot"></span>
+                        <span>Soporte TI 24/7 & Soluciones Empresariales</span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-[1.12] mb-6 reveal">
+                        Expertos en <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-200 to-white">Sistemas</span> y Soluciones TI
+                    </h1>
+
+                    <!-- Slogan & Description -->
+                    <p class="text-lg sm:text-xl md:text-2xl font-display font-semibold text-sky-200/90 mb-4 tracking-wide reveal">
+                        TODO UN MUNDO EN TECNOLOGÍA
+                    </p>
+
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal reveal">
+                        Impulsamos la productividad y seguridad tecnológica de empresas y hogares con mantenimiento especializado, desarrollo de software y soporte continuo.
+                    </p>
+
+                    <!-- Hero Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center reveal">
+                        <a href="#servicios" class="btn-primary text-base shadow-xl">
+                            <span>Explorar Servicios</span>
+                            <ion-icon name="arrow-down-outline" class="text-lg"></ion-icon>
+                        </a>
+                        <a href="#contacto" class="btn-glass text-base">
+                            <ion-icon name="chatbubbles-outline" class="text-lg"></ion-icon>
+                            <span>Cotizar Asistencia</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Metrics Strip -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-14 pt-10 border-t border-white/10 text-left reveal">
+                        <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
+                            <div class="text-2xl sm:text-3xl font-display font-extrabold text-white">150+</div>
+                            <div class="text-xs text-sky-200/70 font-medium mt-0.5">Proyectos TI Exitosos</div>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
+                            <div class="text-2xl sm:text-3xl font-display font-extrabold text-white flex items-center gap-1.5">
+                                <span>4.7</span>
+                                <ion-icon name="star" class="text-yellow-400 text-xl"></ion-icon>
+                            </div>
+                            <div class="text-xs text-sky-200/70 font-medium mt-0.5">Reseñas en Google</div>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
+                            <div class="text-2xl sm:text-3xl font-display font-extrabold text-white">+10</div>
+                            <div class="text-xs text-sky-200/70 font-medium mt-0.5">Años de Trayectoria</div>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
+                            <div class="text-2xl sm:text-3xl font-display font-extrabold text-white">100%</div>
+                            <div class="text-xs text-sky-200/70 font-medium mt-0.5">Garantía y Confianza</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
-        <!-- Services -->
-        <section id="servicios" class="py-32 bg-[var(--bg-body)]">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-20 reveal">
-                    <span class="text-twAzul font-semibold uppercase tracking-[0.2em] text-sm">Nuestra Oferta</span>
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">Servicios Profesionales</h2>
-                    <div class="flex justify-center mb-6">
+
+        <!-- Services Section -->
+        <section id="servicios" class="py-24 sm:py-32 bg-[var(--bg-body)] relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20 reveal">
+                    <span class="text-azul-500 dark:text-cyan-400 font-semibold uppercase tracking-widest text-xs sm:text-sm">Nuestra Oferta</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mt-3 mb-5 text-[var(--text-heading)]">Servicios Profesionales</h2>
+                    <div class="flex justify-center mb-5">
                         <div class="section-divider"></div>
                     </div>
-                    <p class="text-twMuted text-lg max-w-2xl mx-auto">Soluciones integrales respaldadas por más de una década de experiencia en el sector tecnológico.</p>
+                    <p class="text-[var(--text-muted)] text-base sm:text-lg leading-relaxed">Soluciones integrales de hardware y software respaldadas por diagnóstico preciso y soporte ágil.</p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-                    <div class="card-service p-10 bg-twCard rounded-3xl border border-twBorder shadow-xl reveal group">
-                        <div class="w-20 h-20 bg-twAzul/10 rounded-2xl flex items-center justify-center mb-8 service-icon">
-                            <ion-icon name="construct-outline" class="text-4xl text-twAzul"></ion-icon>
+
+                <!-- Services Grid -->
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Card 1: Reparación y Mantenimiento -->
+                    <div class="card-service flex flex-col justify-between reveal">
+                        <div>
+                            <div class="service-icon-box mb-6 text-azul-500 dark:text-cyan-400">
+                                <ion-icon name="construct-outline" class="text-3xl"></ion-icon>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-display font-bold mb-3 text-[var(--text-heading)]">Reparación y Mantenimiento</h3>
+                            <p class="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed mb-6">
+                                Diagnóstico exhaustivo, reparación a nivel de componentes y mantenimiento preventivo de computadoras, laptops y servidores.
+                            </p>
+                            <ul class="space-y-3 text-sm text-[var(--text-muted)] mb-8">
+                                <li class="flex items-center gap-3">
+                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                    <span>Mantenimiento preventivo & correctivo</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                    <span>Reparación de hardware & optimización térmica</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                    <span>Formateo, instalación y recuperación de datos</span>
+                                </li>
+                            </ul>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-twText">Reparación y Mantenimiento</h3>
-                        <div class="w-12 h-1 bg-twAzul/30 rounded-full mb-6"></div>
-                        <p class="text-twMuted leading-relaxed mb-6">Diagnóstico, reparación y mantenimiento preventivo de equipos de cómputo, servidores y redes. Garantizamos el óptimo funcionamiento de tu infraestructura técnica.</p>
-                        <ul class="space-y-3 text-sm text-twMuted">
-                            <li class="flex items-center gap-3"><ion-icon name="checkmark-circle" class="text-twAzul text-lg shrink-0"></ion-icon>Mantenimiento preventivo y correctivo</li>
-                            <li class="flex items-center gap-3"><ion-icon name="checkmark-circle" class="text-twAzul text-lg shrink-0"></ion-icon>Reparación de hardware y software</li>
-                            <li class="flex items-center gap-3"><ion-icon name="checkmark-circle" class="text-twAzul text-lg shrink-0"></ion-icon>Optimización de rendimiento</li>
-                        </ul>
-                    </div>
-                    <div class="card-service p-10 bg-twCard rounded-3xl border border-twBorder shadow-xl reveal group md:translate-y-8">
-                        <div class="w-20 h-20 bg-twAzul/10 rounded-2xl flex items-center justify-center mb-8 service-icon">
-                            <ion-icon name="code-slash-outline" class="text-4xl text-twAzul"></ion-icon>
+                        <div>
+                            <a href="#contacto" data-service="reparacion" class="w-full btn-outline-tech service-cta-btn">
+                                <span>Solicitar Reparación</span>
+                                <ion-icon name="chevron-forward-outline"></ion-icon>
+                            </a>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-twText">Desarrollo de Sistemas</h3>
-                        <div class="w-12 h-1 bg-twAzul/30 rounded-full mb-6"></div>
-                        <p class="text-twMuted leading-relaxed mb-6">Creamos aplicaciones web, móviles y sistemas a la medida para optimizar tus procesos empresariales con tecnología de vanguardia.</p>
-                        <ul class="space-y-3 text-sm text-twMuted">
-                            <li class="flex items-center gap-3"><ion-icon name="checkmark-circle" class="text-twAzul text-lg shrink-0"></ion-icon>Desarrollo web y móvil a medida</li>
-                            <li class="flex items-center gap-3"><ion-icon name="checkmark-circle" class="text-twAzul text-lg shrink-0"></ion-icon>Sistemas de gestión empresarial</li>
-                            <li class="flex items-center gap-3"><ion-icon name="checkmark-circle" class="text-twAzul text-lg shrink-0"></ion-icon>Integración de APIs y servicios cloud</li>
-                        </ul>
                     </div>
-                    <div class="card-service p-10 bg-twCard rounded-3xl border border-twBorder shadow-xl reveal group">
-                        <div class="w-20 h-20 bg-twAzul/10 rounded-2xl flex items-center justify-center mb-8 service-icon">
-                            <ion-icon name="headset-outline" class="text-4xl text-twAzul"></ion-icon>
+
+                    <!-- Card 2: Desarrollo de Sistemas -->
+                    <div class="card-service flex flex-col justify-between reveal md:-translate-y-4 border-azul-500/30 shadow-lg">
+                        <div>
+                            <div class="inline-block px-3 py-1 bg-azul-500/10 text-azul-500 dark:text-cyan-400 text-xs font-bold rounded-full mb-4">
+                                Solución Digital
+                            </div>
+                            <div class="service-icon-box mb-6 text-azul-500 dark:text-cyan-400">
+                                <ion-icon name="code-slash-outline" class="text-3xl"></ion-icon>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-display font-bold mb-3 text-[var(--text-heading)]">Desarrollo de Sistemas</h3>
+                            <p class="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed mb-6">
+                                Aplicaciones web, sistemas de gestión y software a medida para automatizar y escalar los procesos de tu negocio.
+                            </p>
+                            <ul class="space-y-3 text-sm text-[var(--text-muted)] mb-8">
+                                <li class="flex items-center gap-3">
+                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                    <span>Sistemas web y plataformas a medida</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                    <span>Software de facturación e inventario</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                    <span>Integración de APIs y bases de datos cloud</span>
+                                </li>
+                            </ul>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-twText">Soporte Técnico</h3>
-                        <div class="w-12 h-1 bg-twAzul/30 rounded-full mb-6"></div>
-                        <p class="text-twMuted leading-relaxed mb-6">Asistencia técnica especializada para resolver incidentes, implementar soluciones y garantizar la continuidad operativa de tu negocio.</p>
-                        <ul class="space-y-3 text-sm text-twMuted">
-                            <li class="flex items-center gap-3"><ion-icon name="checkmark-circle" class="text-twAzul text-lg shrink-0"></ion-icon>Soporte remoto y presencial</li>
-                            <li class="flex items-center gap-3"><ion-icon name="checkmark-circle" class="text-twAzul text-lg shrink-0"></ion-icon>Mesa de ayuda y atención prioritaria</li>
-                            <li class="flex items-center gap-3"><ion-icon name="checkmark-circle" class="text-twAzul text-lg shrink-0"></ion-icon>Monitoreo y mantenimiento continuo</li>
-                        </ul>
+                        <div>
+                            <a href="#contacto" data-service="desarrollo" class="w-full btn-primary justify-center text-sm service-cta-btn">
+                                <span>Cotizar Desarrollo</span>
+                                <ion-icon name="arrow-forward-outline"></ion-icon>
+                            </a>
+                        </div>
                     </div>
+
+                    <!-- Card 3: Soporte Técnico -->
+                    <div class="card-service flex flex-col justify-between reveal">
+                        <div>
+                            <div class="service-icon-box mb-6 text-azul-500 dark:text-cyan-400">
+                                <ion-icon name="headset-outline" class="text-3xl"></ion-icon>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-display font-bold mb-3 text-[var(--text-heading)]">Soporte Técnico y Redes</h3>
+                            <p class="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed mb-6">
+                                Asistencia continua remota y presencial para resolver incidencias, configurar redes y garantizar la operatividad de tu empresa.
+                            </p>
+                            <ul class="space-y-3 text-sm text-[var(--text-muted)] mb-8">
+                                <li class="flex items-center gap-3">
+                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                    <span>Mesa de ayuda y soporte remoto ágil</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                    <span>Instalación de redes cableadas y Wi-Fi</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                    <span>Monitoreo, copias de seguridad y seguridad TI</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="#contacto" data-service="soporte" class="w-full btn-outline-tech service-cta-btn">
+                                <span>Solicitar Asistencia</span>
+                                <ion-icon name="chevron-forward-outline"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
-        <!-- Clients -->
-        <section id="clientes" class="py-32 bg-twCard">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-20 reveal">
-                    <span class="text-twAzul font-semibold uppercase tracking-[0.2em] text-sm">Confianza</span>
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">Nuestros Clientes y Socios</h2>
-                    <div class="flex justify-center mb-6">
-                        <div class="section-divider"></div>
-                    </div>
-                    <p class="text-twMuted text-lg max-w-2xl mx-auto">Empresas líderes que confían en nuestra experiencia tecnológica para impulsar su transformación digital.</p>
+
+        <!-- Clients & Partners Section -->
+        <section id="clientes" class="py-20 sm:py-28 bg-[var(--bg-card)] border-y border-[var(--border-subtle)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+                    <span class="text-azul-500 dark:text-cyan-400 font-semibold uppercase tracking-widest text-xs sm:text-sm">Confianza & Alianzas</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold mt-2 text-[var(--text-heading)]">Clientes y Socios Estratégicos</h2>
+                    <p class="text-[var(--text-muted)] text-sm sm:text-base mt-3">Empresas e instituciones que confían en nuestro respaldo técnico.</p>
                 </div>
-                <div class="max-w-4xl mx-auto space-y-16">
+
+                <div class="max-w-5xl mx-auto space-y-12">
+                    
+                    <!-- Clientes -->
                     <div>
-                        <h3 class="text-center text-twAzul font-bold uppercase tracking-[0.2em] text-sm mb-10 reveal">Clientes</h3>
-                        <div class="grid grid-cols-2 gap-8">
-                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1 hover:border-accent/30 transition-all">
-                                <img src="assets/img/clientes/centro_medico_diaz.jpg" alt="Centro Médico Díaz" class="h-16 w-auto object-contain mb-4">
-                                <p class="font-bold text-twText text-center">Centro Médico Díaz</p>
+                        <div class="text-center text-xs font-bold uppercase tracking-widest text-[var(--text-dim)] mb-6 reveal">Empresas Clientes</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="reveal p-6 rounded-2xl bg-[var(--bg-card-alt)] border border-[var(--border-subtle)] flex items-center gap-5 hover:border-azul-500/40 transition-all shadow-sm">
+                                <div class="w-16 h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-inner shrink-0">
+                                    <img src="assets/img/clientes/centro_medico_diaz.jpg" alt="Centro Médico Díaz" class="max-h-full max-w-full object-contain">
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-bold text-base text-[var(--text-heading)]">Centro Médico Díaz</h4>
+                                    <p class="text-xs text-[var(--text-muted)]">Servicios de Salud & Soporte TI</p>
+                                </div>
                             </div>
-                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1 hover:border-accent/30 transition-all">
-                                <img src="assets/img/clientes/inversiones_rivera_carvajal.png" alt="Inversiones Rivera Carvajal" class="h-16 w-auto object-contain mb-4">
-                                <p class="font-bold text-twText text-center">Inversiones Rivera Carvajal</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border-t border-twBorder pt-16">
-                        <h3 class="text-center text-twAzul font-bold uppercase tracking-[0.2em] text-sm mb-10 reveal">Socios Estratégicos</h3>
-                        <div class="grid grid-cols-2 gap-8">
-                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1 hover:border-accent/30 transition-all">
-                                <img src="assets/img/clientes/DEVCO.jpeg" alt="DEVCO" class="h-16 w-auto object-contain mb-4">
-                                <p class="font-bold text-twText text-center">DEVCO</p>
-                            </div>
-                            <div class="reveal bg-[var(--bg-card-alt)] rounded-2xl p-8 flex flex-col items-center justify-center border border-twBorder hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1 hover:border-accent/30 transition-all">
-                                <img src="assets/img/clientes/syntax.jpg" alt="SYNTAX" class="h-16 w-auto object-contain mb-4">
-                                <p class="font-bold text-twText text-center">SYNTAX</p>
+                            <div class="reveal p-6 rounded-2xl bg-[var(--bg-card-alt)] border border-[var(--border-subtle)] flex items-center gap-5 hover:border-azul-500/40 transition-all shadow-sm">
+                                <div class="w-16 h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-inner shrink-0">
+                                    <img src="assets/img/clientes/inversiones_rivera_carvajal.png" alt="Inversiones Rivera Carvajal" class="max-h-full max-w-full object-contain">
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-bold text-base text-[var(--text-heading)]">Inversiones Rivera Carvajal</h4>
+                                    <p class="text-xs text-[var(--text-muted)]">Sector Empresarial & Mantenimiento</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Socios Estratégicos -->
+                    <div class="pt-6 border-t border-[var(--border-subtle)]">
+                        <div class="text-center text-xs font-bold uppercase tracking-widest text-[var(--text-dim)] mb-6 reveal">Socios Estratégicos</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="reveal p-6 rounded-2xl bg-[var(--bg-card-alt)] border border-[var(--border-subtle)] flex items-center gap-5 hover:border-azul-500/40 transition-all shadow-sm">
+                                <div class="w-16 h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-inner shrink-0">
+                                    <img src="assets/img/clientes/DEVCO.jpeg" alt="DEVCO" class="max-h-full max-w-full object-contain">
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-bold text-base text-[var(--text-heading)]">DEVCO</h4>
+                                    <p class="text-xs text-[var(--text-muted)]">Desarrollo & Alianza Tecnológica</p>
+                                </div>
+                            </div>
+                            <div class="reveal p-6 rounded-2xl bg-[var(--bg-card-alt)] border border-[var(--border-subtle)] flex items-center gap-5 hover:border-azul-500/40 transition-all shadow-sm">
+                                <div class="w-16 h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-inner shrink-0">
+                                    <img src="assets/img/clientes/syntax.jpg" alt="SYNTAX" class="max-h-full max-w-full object-contain">
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-bold text-base text-[var(--text-heading)]">SYNTAX</h4>
+                                    <p class="text-xs text-[var(--text-muted)]">Soluciones de Software & TI</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
-        <!-- Testimonials Section -->
-        <section id="testimonios" class="py-32 bg-[var(--bg-card-alt)] border-t border-b border-twBorder">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-20 reveal">
-                    <span class="text-twAzul font-semibold uppercase tracking-[0.2em] text-sm">Valoraciones</span>
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">Opiniones de Clientes</h2>
+
+        <!-- Testimonials Section (Google Maps Verified) -->
+        <section id="testimonios" class="py-24 sm:py-32 bg-[var(--bg-body)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <span class="text-azul-500 dark:text-cyan-400 font-semibold uppercase tracking-widest text-xs sm:text-sm">Valoraciones Reales</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mt-3 mb-5 text-[var(--text-heading)]">Opiniones en Google Maps</h2>
                     <div class="flex justify-center mb-6">
                         <div class="section-divider"></div>
                     </div>
-                    <p class="text-twMuted text-lg max-w-2xl mx-auto">La satisfacción de nuestros clientes es nuestro mejor respaldo. Conoce lo que opinan sobre su experiencia con nosotros.</p>
                     
                     <!-- Rating Badge -->
-                    <div class="mt-8 inline-flex items-center gap-4 bg-twCard px-6 py-3 rounded-full shadow-lg border border-twBorder">
-                        <div class="flex text-yellow-500 text-xl">
+                    <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[var(--bg-card)] border border-[var(--border-subtle)] shadow-sm">
+                        <div class="flex text-yellow-400 text-lg">
                             <ion-icon name="star"></ion-icon>
                             <ion-icon name="star"></ion-icon>
                             <ion-icon name="star"></ion-icon>
                             <ion-icon name="star"></ion-icon>
                             <ion-icon name="star-half"></ion-icon>
                         </div>
-                        <span class="font-bold text-twText">4.7 / 5.0</span>
-                        <span class="text-twMuted text-sm border-l border-twBorder pl-4 flex items-center gap-1.5">
+                        <span class="font-display font-bold text-[var(--text-heading)] text-sm">4.7 de 5.0</span>
+                        <span class="text-xs text-[var(--text-muted)] border-l border-[var(--border-subtle)] pl-3 flex items-center gap-1">
                             <ion-icon name="logo-google" class="text-red-500"></ion-icon>
-                            Google Maps
+                            Verificado
                         </span>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto mb-16">
-                    <!-- Testimonial 1 -->
-                    <div class="reveal bg-twCard p-8 rounded-3xl border border-twBorder shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:border-accent/30 transition-all duration-300 flex flex-col justify-between group animate-hover">
+                <!-- Testimonials Grid -->
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+                    
+                    <!-- Review 1 -->
+                    <div class="testimonial-card reveal">
                         <div>
-                            <div class="flex text-yellow-500 text-lg mb-6">
+                            <div class="flex text-yellow-400 text-base mb-4">
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                             </div>
-                            <p class="text-twText leading-relaxed mb-8 italic">"Buen Lugar para Tecnologia."</p>
+                            <p class="text-base text-[var(--text-body)] italic leading-relaxed mb-6">
+                                "Buen Lugar para Tecnologia."
+                            </p>
                         </div>
-                        <div class="flex items-center gap-4 border-t border-twBorder/50 pt-6">
-                            <div class="w-12 h-12 bg-gradient-to-br from-azul-100 to-accent-200 text-twAzul font-display font-extrabold flex items-center justify-center rounded-full text-base group-hover:scale-110 transition-transform shadow-inner">
+                        <div class="flex items-center gap-3.5 pt-4 border-t border-[var(--border-subtle)]">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-azul-500 to-sky-400 text-white font-bold flex items-center justify-center text-sm shadow-sm">
                                 VE
                             </div>
                             <div>
-                                <h4 class="font-bold text-twText">Victor Euceda</h4>
-                                <p class="text-xs text-twMuted">Local Guide • Google Maps</p>
+                                <h4 class="font-display font-bold text-sm text-[var(--text-heading)]">Victor Euceda</h4>
+                                <p class="text-xs text-[var(--text-muted)] flex items-center gap-1">
+                                    <span>Local Guide</span> • <span>Google Maps</span>
+                                </p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Testimonial 2 -->
-                    <div class="reveal bg-twCard p-8 rounded-3xl border border-twBorder shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:border-accent/30 transition-all duration-300 flex flex-col justify-between group animate-hover">
+                    <!-- Review 2 -->
+                    <div class="testimonial-card reveal">
                         <div>
-                            <div class="flex text-yellow-500 text-lg mb-6">
+                            <div class="flex text-yellow-400 text-base mb-4">
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                             </div>
-                            <p class="text-twText leading-relaxed mb-8 italic">"Me parece buen lugar."</p>
+                            <p class="text-base text-[var(--text-body)] italic leading-relaxed mb-6">
+                                "Me parece buen lugar."
+                            </p>
                         </div>
-                        <div class="flex items-center gap-4 border-t border-twBorder/50 pt-6">
-                            <div class="w-12 h-12 bg-gradient-to-br from-azul-200 to-accent-300 text-white font-display font-extrabold flex items-center justify-center rounded-full text-base group-hover:scale-110 transition-transform shadow-inner">
+                        <div class="flex items-center gap-3.5 pt-4 border-t border-[var(--border-subtle)]">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-slate-600 to-azul-500 text-white font-bold flex items-center justify-center text-sm shadow-sm">
                                 EM
                             </div>
                             <div>
-                                <h4 class="font-bold text-twText">Eduardo Moreno</h4>
-                                <p class="text-xs text-twMuted">Local Guide • Google Maps</p>
+                                <h4 class="font-display font-bold text-sm text-[var(--text-heading)]">Eduardo Moreno</h4>
+                                <p class="text-xs text-[var(--text-muted)] flex items-center gap-1">
+                                    <span>Local Guide</span> • <span>Google Maps</span>
+                                </p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Testimonial 3 -->
-                    <div class="reveal bg-twCard p-8 rounded-3xl border border-twBorder shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:border-accent/30 transition-all duration-300 flex flex-col justify-between group animate-hover">
+                    <!-- Review 3 -->
+                    <div class="testimonial-card reveal">
                         <div>
-                            <div class="flex text-yellow-500 text-lg mb-6">
+                            <div class="flex text-yellow-400 text-base mb-4">
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                                 <ion-icon name="star"></ion-icon>
                             </div>
-                            <p class="text-twText leading-relaxed mb-8 italic">"Buen servicio.. full recomendable."</p>
+                            <p class="text-base text-[var(--text-body)] italic leading-relaxed mb-6">
+                                "Buen servicio.. full recomendable."
+                            </p>
                         </div>
-                        <div class="flex items-center gap-4 border-t border-twBorder/50 pt-6">
-                            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 text-white font-display font-extrabold flex items-center justify-center rounded-full text-base group-hover:scale-110 transition-transform shadow-inner">
+                        <div class="flex items-center gap-3.5 pt-4 border-t border-[var(--border-subtle)]">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white font-bold flex items-center justify-center text-sm shadow-sm">
                                 LC
                             </div>
                             <div>
-                                <h4 class="font-bold text-twText">Luis S. Cruz</h4>
-                                <p class="text-xs text-twMuted">Local Guide • Google Maps</p>
+                                <h4 class="font-display font-bold text-sm text-[var(--text-heading)]">Luis S. Cruz</h4>
+                                <p class="text-xs text-[var(--text-muted)] flex items-center gap-1">
+                                    <span>Local Guide</span> • <span>Google Maps</span>
+                                </p>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="text-center reveal">
-                    <a href="https://maps.app.goo.gl/x2H2P7RTY2ntuHP16" target="_blank" rel="noopener noreferrer" id="btnVerMasResenas" class="btn-primary inline-flex items-center gap-3 text-white px-10 py-4.5 rounded-xl font-bold text-lg hover:shadow-lg transition-all">
-                        <ion-icon name="logo-google" class="text-xl"></ion-icon>
-                        Ver opiniones en Google Maps
-                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                    <a href="https://maps.app.goo.gl/x2H2P7RTY2ntuHP16" target="_blank" rel="noopener noreferrer" class="btn-outline-tech">
+                        <ion-icon name="logo-google" class="text-lg text-red-500"></ion-icon>
+                        <span>Ver más opiniones en Google Maps</span>
+                        <ion-icon name="open-outline" class="text-sm"></ion-icon>
                     </a>
                 </div>
+
             </div>
         </section>
-        <!-- DNA Section -->
-        <section id="empresa" class="py-32 bg-twNegro text-twBlanco">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
-                <div class="reveal">
-                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-10">Más que Tecnología, somos <span class="text-twAzul">Socios.</span></h2>
-                    <div class="space-y-12">
+
+        <!-- Company ADN / Misión & Visión -->
+        <section id="empresa" class="py-24 sm:py-32 bg-[var(--neutro-950)] text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+                    
+                    <!-- Left: Mission & Vision -->
+                    <div class="lg:col-span-7 space-y-8 reveal">
                         <div>
-                            <h4 class="text-xl font-bold mb-4 flex items-center gap-3">
-                                <span class="w-8 h-1 bg-twAzul"></span> Misión
-                            </h4>
-                            <p class="text-twBlanco/60 text-lg">Ofrecer servicios de alta calidad en soporte técnico y en la venta de artículos, brindando seguridad y confianza a nuestros clientes en sus equipos tecnológicos, realizando diagnósticos profundos de sus problemas para ejecutar una solución fiable y segura.</p>
+                            <span class="text-cyan-400 font-semibold uppercase tracking-widest text-xs sm:text-sm">Nuestro ADN</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mt-3 text-white">
+                                Más que Tecnología, somos <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-sky-300">tu Aliado.</span>
+                            </h2>
                         </div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-4 flex items-center gap-3">
-                                <span class="w-8 h-1 bg-twAzul"></span> Visión
-                            </h4>
-                            <p class="text-twBlanco/60 text-lg">Ser líderes en el campo de la tecnología siendo una empresa comprometida en sus ejecuciones y brindar el mejor servicio merecido a nuestros clientes. Lograr ser una entidad importante por la población y muchas empresas produciendo el apoyo que más demanden.</p>
+
+                        <!-- Misión Card -->
+                        <div class="p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-9 h-9 rounded-lg bg-azul-500/20 text-cyan-400 flex items-center justify-center">
+                                    <ion-icon name="rocket-outline" class="text-xl"></ion-icon>
+                                </div>
+                                <h3 class="text-xl font-display font-bold text-white">Misión</h3>
+                            </div>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                Ofrecer servicios de alta calidad en soporte técnico y venta de equipos, brindando seguridad y confianza a nuestros clientes mediante diagnósticos profundos para ejecutar soluciones fiables y duraderas.
+                            </p>
+                        </div>
+
+                        <!-- Visión Card -->
+                        <div class="p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-9 h-9 rounded-lg bg-azul-500/20 text-cyan-400 flex items-center justify-center">
+                                    <ion-icon name="eye-outline" class="text-xl"></ion-icon>
+                                </div>
+                                <h3 class="text-xl font-display font-bold text-white">Visión</h3>
+                            </div>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                Ser líderes en el campo de la tecnología con un compromiso constante en cada ejecución, brindando excelencia de servicio a toda la población y empresas que demanden apoyo técnico especializado.
+                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="relative reveal">
-                    <div class="bg-twAzul/20 p-8 rounded-[3rem] border border-twAzul/30">
-                        <div class="bg-twNegro p-12 rounded-[2rem] border border-twBlanco/10">
-                            <span class="text-6xl font-extrabold text-twAzul block mb-4">150+</span>
-                            <p class="text-xl font-bold mb-2">Proyectos Exitosos</p>
-                            <p class="text-twBlanco/40 uppercase tracking-widest text-sm font-bold">Confianza Certificada</p>
+
+                    <!-- Right: Stat Box -->
+                    <div class="lg:col-span-5 reveal">
+                        <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-azul-900/60 to-slate-900/90 border border-azul-500/30 backdrop-blur-xl text-center relative overflow-hidden shadow-2xl">
+                            <div class="absolute -top-20 -right-20 w-48 h-48 bg-sky-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                            
+                            <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-azul-500/20 border border-azul-500/30 flex items-center justify-center text-cyan-400">
+                                <ion-icon name="shield-checkmark-outline" class="text-3xl"></ion-icon>
+                            </div>
+                            <div class="text-5xl sm:text-6xl font-display font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-100 to-sky-300 mb-2">150+</div>
+                            <h4 class="text-xl font-display font-bold text-white mb-2">Proyectos Exitosos</h4>
+                            <p class="text-sm text-sky-200/70 mb-8 max-w-xs mx-auto">Confianza certificada con atención personalizada en cada requerimiento.</p>
+                            
+                            <div class="pt-6 border-t border-white/10 flex justify-around text-center text-xs">
+                                <div>
+                                    <div class="font-bold text-base text-white">Catacamas</div>
+                                    <div class="text-slate-400">Olancho, HN</div>
+                                </div>
+                                <div class="border-r border-white/10"></div>
+                                <div>
+                                    <div class="font-bold text-base text-white">2016 - 2026</div>
+                                    <div class="text-slate-400">10 Años de Servicio</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
-        <!-- Contact -->
-        <section id="contacto" class="py-32">
-            <div class="container mx-auto px-6">
-                <div class="max-w-5xl mx-auto bg-twCard rounded-[3rem] shadow-2xl overflow-hidden grid md:grid-cols-2 reveal">
-                    <div class="bg-twAzul p-16 text-white flex flex-col justify-center">
-                        <h2 class="text-4xl font-display font-bold mb-8">¿En qué podemos ayudarte?</h2>
-                        <p class="text-twBlanco/80 mb-10">Estamos para atender tus consultas, cotizaciones y solicitudes de soporte técnico.</p>
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-4">
-                                <ion-icon name="call-outline" class="text-2xl"></ion-icon>
-                                <span>+504 9209-3796</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <ion-icon name="mail-outline" class="text-2xl"></ion-icon>
-                                <span>technoworldhn@gmail.com</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <ion-icon name="location-outline" class="text-2xl"></ion-icon>
-                                <span>Res. El Llano 2da. Etapa, 5ta. Calle Catacamas Olancho, 16201</span>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="py-24 sm:py-32 bg-[var(--bg-body)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="max-w-5xl mx-auto rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)] shadow-2xl overflow-hidden grid lg:grid-cols-12 reveal">
+                    
+                    <!-- Contact Information (Left Panel) -->
+                    <div class="lg:col-span-5 bg-gradient-to-br from-azul-600 to-azul-800 text-white p-8 sm:p-12 flex flex-col justify-between relative overflow-hidden">
+                        <div class="relative z-10">
+                            <span class="text-sky-200 text-xs font-semibold uppercase tracking-widest">Atención Inmediata</span>
+                            <h2 class="text-2xl sm:text-3xl font-display font-extrabold mt-2 mb-4 text-white">¿Cómo podemos ayudarte?</h2>
+                            <p class="text-sky-100/80 text-sm sm:text-base leading-relaxed mb-8">
+                                Cuéntanos sobre tu necesidad técnica o proyecto. Responderemos a la brevedad posible.
+                            </p>
+
+                            <div class="space-y-6 text-sm">
+                                <a href="tel:+50492093796" class="flex items-center gap-4 text-white hover:text-sky-200 transition-colors group">
+                                    <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-all shrink-0">
+                                        <ion-icon name="call-outline" class="text-xl"></ion-icon>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-sky-200/70">Teléfono Directo</div>
+                                        <div class="font-semibold text-base">+504 9209-3796</div>
+                                    </div>
+                                </a>
+
+                                <a href="mailto:technoworldhn@gmail.com" class="flex items-center gap-4 text-white hover:text-sky-200 transition-colors group">
+                                    <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-all shrink-0">
+                                        <ion-icon name="mail-outline" class="text-xl"></ion-icon>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-sky-200/70">Correo Electrónico</div>
+                                        <div class="font-semibold text-base break-all">technoworldhn@gmail.com</div>
+                                    </div>
+                                </a>
+
+                                <div class="flex items-center gap-4 text-white">
+                                    <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                                        <ion-icon name="location-outline" class="text-xl"></ion-icon>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-sky-200/70">Ubicación</div>
+                                        <div class="font-semibold text-sm">Res. El Llano 2da. Etapa, 5ta. Calle, Catacamas</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="mt-10 pt-8 border-t border-twBlanco/20">
-                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-twBlanco/60 mb-4">Síguenos</p>
-                            <div class="flex gap-4">
-                                <a href="https://www.facebook.com/technoworldhn" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all">
+
+                        <div class="pt-8 mt-8 border-t border-white/15 relative z-10">
+                            <div class="text-xs text-sky-200/70 font-semibold uppercase tracking-wider mb-3">Redes Sociales</div>
+                            <div class="flex gap-3">
+                                <a href="https://www.facebook.com/technoworldhn" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/25 transition-all text-white" aria-label="Facebook">
                                     <ion-icon name="logo-facebook" class="text-xl"></ion-icon>
                                 </a>
-                                <a href="https://www.instagram.com/technoworld16/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all">
+                                <a href="https://www.instagram.com/technoworld16/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/25 transition-all text-white" aria-label="Instagram">
                                     <ion-icon name="logo-instagram" class="text-xl"></ion-icon>
+                                </a>
+                                <a href="https://wa.me/50492093796" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/25 transition-all text-white" aria-label="WhatsApp">
+                                    <ion-icon name="logo-whatsapp" class="text-xl"></ion-icon>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="p-16">
-                        <form id="contactForm" action="send.php" method="POST" class="space-y-8">
-                            <div class="grid grid-cols-2 gap-6">
+
+                    <!-- Contact Form (Right Panel) -->
+                    <div class="lg:col-span-7 p-8 sm:p-12">
+                        <form id="contactForm" action="send.php" method="POST" class="space-y-6">
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <div>
-                                    <label class="block text-xs font-bold uppercase text-twFaint mb-2">Nombre Completo</label>
-                                    <input type="text" name="nombre" required class="w-full bg-[var(--bg-input)] border border-[var(--border-light)] rounded-xl px-4 py-4 outline-none focus:border-twAzul">
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-[var(--text-dim)] mb-2">Nombre Completo *</label>
+                                    <input type="text" name="nombre" required placeholder="Ej. Carlos Martínez" class="input-tech">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold uppercase text-twFaint mb-2">Correo Electrónico</label>
-                                    <input type="email" name="email" required class="w-full bg-[var(--bg-input)] border border-[var(--border-light)] rounded-xl px-4 py-4 outline-none focus:border-twAzul">
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-[var(--text-dim)] mb-2">Correo Electrónico *</label>
+                                    <input type="email" name="email" required placeholder="ejemplo@correo.com" class="input-tech">
                                 </div>
                             </div>
-                            <div class="grid grid-cols-2 gap-6">
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <div>
-                                    <label class="block text-xs font-bold uppercase text-twFaint mb-2">Teléfono</label>
-                                    <input type="tel" name="telefono" class="w-full bg-[var(--bg-input)] border border-[var(--border-light)] rounded-xl px-4 py-4 outline-none focus:border-twAzul">
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-[var(--text-dim)] mb-2">Teléfono de Contacto</label>
+                                    <input type="tel" name="telefono" placeholder="+504 9999-9999" class="input-tech">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold uppercase text-twFaint mb-2">Tipo de Consulta</label>
-                                    <select name="tipo" class="w-full bg-[var(--bg-input)] border border-[var(--border-light)] rounded-xl px-4 py-4 outline-none focus:border-twAzul text-twMuted">
-                                        <option value="">Selecciona una opción</option>
-                                        <option value="soporte">Soporte Técnico</option>
-                                        <option value="cotizacion">Cotización</option>
-                                        <option value="consulta">Consulta General</option>
-                                        <option value="otro">Otro</option>
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-[var(--text-dim)] mb-2">Tipo de Consulta *</label>
+                                    <select name="tipo" required class="input-tech">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="reparacion">Reparación y Mantenimiento</option>
+                                        <option value="desarrollo">Desarrollo de Sistemas</option>
+                                        <option value="soporte">Soporte Técnico y Redes</option>
+                                        <option value="cotizacion">Cotización General</option>
+                                        <option value="otro">Otra Consulta</option>
                                     </select>
                                 </div>
                             </div>
+
                             <div>
-                                <label class="block text-xs font-bold uppercase text-twFaint mb-2">Mensaje</label>
-                                <textarea name="mensaje" required rows="4" class="w-full bg-[var(--bg-input)] border border-[var(--border-light)] rounded-xl px-4 py-4 outline-none focus:border-twAzul resize-none"></textarea>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-[var(--text-dim)] mb-2">Mensaje o Detalles del Servicio *</label>
+                                <textarea name="mensaje" required rows="4" placeholder="Describe brevemente en qué podemos ayudarte..." class="input-tech resize-none"></textarea>
                             </div>
-                            <button type="submit" id="submitBtn" class="w-full btn-primary text-white py-5 rounded-xl font-bold text-lg">Enviar Mensaje</button>
-                            <div id="formFeedback" class="hidden text-center text-sm font-semibold"></div>
+
+                            <div class="space-y-3 pt-2">
+                                <button type="submit" id="submitBtn" class="w-full btn-primary text-base font-bold py-4 bg-[#25D366] hover:bg-[#20ba59] shadow-lg shadow-emerald-500/20 border-emerald-400/30">
+                                    <ion-icon name="logo-whatsapp" class="text-2xl text-white"></ion-icon>
+                                    <span>Enviar Consulta a WhatsApp</span>
+                                </button>
+                                <p class="text-xs text-center text-[var(--text-dim)] flex items-center justify-center gap-1.5">
+                                    <ion-icon name="shield-checkmark-outline" class="text-emerald-500 text-sm"></ion-icon>
+                                    <span>Tus datos se formatearán automáticamente para atención inmediata en WhatsApp (+504 9209-3796)</span>
+                                </p>
+                            </div>
+
+                            <div id="formFeedback" class="hidden p-4 rounded-xl text-center text-sm font-medium"></div>
                         </form>
                     </div>
+
                 </div>
             </div>
         </section>
-        <!-- Map -->
-        <section id="ubicacion" class="py-20 bg-[var(--bg-card)]">
-            <div class="container mx-auto px-6">
+
+        <!-- Location Section (Google Map & Office Details) -->
+        <section id="ubicacion" class="py-20 bg-[var(--bg-card)] border-t border-[var(--border-subtle)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-14 reveal">
-                        <span class="text-twAzul font-semibold uppercase tracking-[0.2em] text-sm">Ubicación</span>
-                        <h3 class="text-3xl md:text-4xl font-display font-bold mt-3 text-twText">Encuéntranos</h3>
+                    
+                    <div class="text-center mb-12 reveal">
+                        <span class="text-azul-500 dark:text-cyan-400 font-semibold uppercase tracking-widest text-xs sm:text-sm">Encuéntranos</span>
+                        <h3 class="text-3xl sm:text-4xl font-display font-extrabold mt-2 text-[var(--text-heading)]">Nuestra Ubicación</h3>
+                        <p class="text-[var(--text-muted)] text-sm sm:text-base mt-2">Visítanos en nuestras oficinas en Catacamas, Olancho.</p>
                     </div>
-                    <div class="grid md:grid-cols-5 gap-8 items-center reveal">
-                        <div class="md:col-span-3 rounded-3xl overflow-hidden shadow-2xl border border-twBorder h-[380px]">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1621.5156631442703!2d-85.87524279375384!3d14.845677501198649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6c73a0e7bc8e93%3A0x9a5fbc44725d60f8!2sTechno%20World!5e0!3m2!1ses-419!2shn!4v1781903959198!5m2!1ses-419!2shn" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    <div class="grid lg:grid-cols-12 gap-8 items-center reveal">
+                        
+                        <!-- Map Frame -->
+                        <div class="lg:col-span-7 rounded-3xl overflow-hidden border border-[var(--border-subtle)] shadow-xl h-[340px] sm:h-[400px]">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1621.5156631442703!2d-85.87524279375384!3d14.845677501198649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6c73a0e7bc8e93%3A0x9a5fbc44725d60f8!2sTechno%20World!5e0!3m2!1ses-419!2shn!4v1781903959198!5m2!1ses-419!2shn" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación TECHNO WORLD"></iframe>
                         </div>
-                        <div class="md:col-span-2 bg-[var(--bg-card-alt)] p-10 rounded-3xl shadow-xl border border-twBorder">
-                            <div class="flex items-center gap-4 mb-8">
-                                <div class="w-14 h-14 bg-twAzul/10 rounded-2xl flex items-center justify-center shrink-0">
-                                    <ion-icon name="location-outline" class="text-3xl text-twAzul"></ion-icon>
+
+                        <!-- Office Details -->
+                        <div class="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-[var(--bg-card-alt)] border border-[var(--border-subtle)] shadow-lg space-y-6">
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-azul-500/10 text-azul-500 dark:text-cyan-400 flex items-center justify-center shrink-0">
+                                    <ion-icon name="location-outline" class="text-2xl"></ion-icon>
                                 </div>
                                 <div>
-                                    <h4 class="text-xl font-bold text-twText">Dirección</h4>
-                                    <p class="text-twDim text-sm">Oficina Central</p>
+                                    <h4 class="font-display font-bold text-base text-[var(--text-heading)]">Dirección</h4>
+                                    <p class="text-sm text-[var(--text-muted)] mt-1">Res. El Llano 2da. Etapa, 5ta. Calle</p>
+                                    <p class="text-xs text-[var(--text-dim)]">Catacamas, Olancho, Honduras (16201)</p>
                                 </div>
                             </div>
-                            <div class="space-y-6 text-twMuted">
-                                <div class="flex items-start gap-4">
-                                    <ion-icon name="business-outline" class="text-xl text-twAzul shrink-0 mt-0.5"></ion-icon>
-                                    <div>
-                                        <p class="font-semibold text-twText">Res. El Llano 2da. Etapa, 5ta. Calle</p>
-                                        <p class="text-sm">Catacamas Olancho, 16201</p>
-                                    </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-azul-500/10 text-azul-500 dark:text-cyan-400 flex items-center justify-center shrink-0">
+                                    <ion-icon name="time-outline" class="text-2xl"></ion-icon>
                                 </div>
-                                <div class="flex items-start gap-4">
-                                    <ion-icon name="call-outline" class="text-xl text-twAzul shrink-0 mt-0.5"></ion-icon>
-                                    <div>
-                                        <p class="font-semibold text-twText">+504 9209-3796</p>
-                                        <p class="text-sm">Lun-Vie 8:00 AM - 6:00 PM</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-4">
-                                    <ion-icon name="mail-outline" class="text-xl text-twAzul shrink-0 mt-0.5"></ion-icon>
-                                    <div>
-                                        <p class="font-semibold text-twText">technoworldhn@gmail.com</p>
-                                        <p class="text-sm">Respuesta en menos de 24h</p>
-                                    </div>
+                                <div>
+                                    <h4 class="font-display font-bold text-base text-[var(--text-heading)]">Horario de Atención</h4>
+                                    <p class="text-sm text-[var(--text-muted)] mt-1">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                                    <p class="text-xs text-[var(--text-dim)]">Sábados: 8:00 AM - 12:00 PM</p>
                                 </div>
                             </div>
+
+                            <div class="pt-4 border-t border-[var(--border-subtle)]">
+                                <a href="https://maps.app.goo.gl/x2H2P7RTY2ntuHP16" target="_blank" rel="noopener noreferrer" class="w-full btn-outline-tech">
+                                    <ion-icon name="navigate-outline" class="text-lg"></ion-icon>
+                                    <span>Abrir en Google Maps</span>
+                                </a>
+                            </div>
+
                         </div>
+
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="py-20 bg-twNegro text-twBlanco border-t border-twBlanco/5">
-        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-16 mb-20">
-            <div class="col-span-1 md:col-span-1">
-                <div class="flex items-center gap-3 mb-8">
-                    <img src="assets/img/LOGO TW PERFIL 2.png" alt="Logo" class="h-10 w-auto brightness-0 invert">
-                    <span class="text-xl brand-font font-extrabold tracking-tight">TECHNO WORLD</span>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-[var(--neutro-950)] text-slate-400 border-t border-white/5 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Brand Info -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="assets/img/LOGO%20TW%20PERFIL%202.png" alt="TECHNO WORLD" class="h-8 w-auto brightness-0 invert">
+                        <span class="text-lg brand-font font-extrabold text-white tracking-tight">TECHNO WORLD</span>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                        Liderando la innovación y soluciones tecnológicas con compromiso, ética y excelencia técnica.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="https://www.facebook.com/technoworldhn" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-azul-500 hover:text-white transition-all" aria-label="Facebook">
+                            <ion-icon name="logo-facebook" class="text-lg"></ion-icon>
+                        </a>
+                        <a href="https://www.instagram.com/technoworld16/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-azul-500 hover:text-white transition-all" aria-label="Instagram">
+                            <ion-icon name="logo-instagram" class="text-lg"></ion-icon>
+                        </a>
+                    </div>
                 </div>
-                <p class="text-twBlanco/70 leading-relaxed">Liderando la innovación tecnológica con compromiso y excelencia técnica desde 2016.</p>
-                <div class="flex gap-4 mt-8">
-                    <a href="https://www.facebook.com/technoworldhn" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-twBlanco/10 flex items-center justify-center hover:bg-twAzul transition-all">
-                        <ion-icon name="logo-facebook" class="text-lg"></ion-icon>
-                    </a>
-                    <a href="https://www.instagram.com/technoworld16/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-twBlanco/10 flex items-center justify-center hover:bg-twAzul transition-all">
-                        <ion-icon name="logo-instagram" class="text-lg"></ion-icon>
-                    </a>
+
+                <!-- Navigation -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-xs uppercase tracking-widest mb-4">Navegación</h4>
+                    <ul class="space-y-2.5 text-xs sm:text-sm">
+                        <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
+                        <li><a href="#clientes" class="hover:text-white transition-colors">Clientes y Socios</a></li>
+                        <li><a href="#testimonios" class="hover:text-white transition-colors">Testimonios</a></li>
+                        <li><a href="#empresa" class="hover:text-white transition-colors">ADN de la Empresa</a></li>
+                    </ul>
                 </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-xs uppercase tracking-widest mb-4">Servicios</h4>
+                    <ul class="space-y-2.5 text-xs sm:text-sm">
+                        <li><a href="#servicios" class="hover:text-white transition-colors">Reparación de Hardware</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition-colors">Mantenimiento Preventivo</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition-colors">Desarrollo de Software</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition-colors">Soporte Técnico y Redes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Schedule -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-xs uppercase tracking-widest mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li class="text-slate-300">+504 9209-3796</li>
+                        <li class="text-slate-300 break-all">technoworldhn@gmail.com</li>
+                        <li class="text-slate-500">Catacamas, Olancho, HN</li>
+                    </ul>
+                </div>
+
             </div>
-            <div>
-                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs text-twAccent">Navegación</h4>
-                <ul class="space-y-4 text-twBlanco/80">
-                    <li><a href="#inicio" class="hover:text-twBlanco transition-colors">Inicio</a></li>
-                    <li><a href="#servicios" class="hover:text-twBlanco transition-colors">Servicios</a></li>
-                    <li><a href="#clientes" class="hover:text-twBlanco transition-colors">Clientes</a></li>
-                    <li><a href="#testimonios" class="hover:text-twBlanco transition-colors">Testimonios</a></li>
-                    <li><a href="#empresa" class="hover:text-twBlanco transition-colors">Empresa</a></li>
-                    <li><a href="#ubicacion" class="hover:text-twBlanco transition-colors">Ubicación</a></li>
-                    <li><a href="#contacto" class="hover:text-twBlanco transition-colors">Contacto</a></li>
-                </ul>
+
+            <div class="pt-8 border-t border-white/10 text-center text-slate-500 text-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>&copy; 2026 TECHNO WORLD. Todos los derechos reservados.</div>
+                <div class="text-slate-400">TODO UN MUNDO EN TECNOLOGÍA</div>
             </div>
-            <div>
-                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs text-twAccent">Servicios</h4>
-                <ul class="space-y-4 text-twBlanco/80">
-                    <li>Reparación y Mantenimiento</li>
-                    <li>Desarrollo de Sistemas</li>
-                    <li>Soporte Técnico</li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs text-twAccent">Legal</h4>
-                <ul class="space-y-4 text-twBlanco/80">
-                    <li>Privacidad</li>
-                    <li>Términos de Uso</li>
-                </ul>
-            </div>
-        </div>
-        <div class="container mx-auto px-6 pt-12 border-t border-twBlanco/10 text-center text-twBlanco/40 text-xs font-bold uppercase tracking-[0.3em]">
-            &copy; 2026 TECHNO WORLD. Todos los derechos reservados.
         </div>
     </footer>
-    <!-- Scroll to Top -->
-    <button id="scrollTop" aria-label="Volver arriba">
-        <ion-icon name="chevron-up"></ion-icon>
+
+    <!-- Bottom Mobile Navigation Bar (Mobile Ergonomics) -->
+    <nav class="mobile-bottom-bar" aria-label="Navegación Móvil Rápida">
+        <a href="#inicio" class="mobile-nav-item active" aria-label="Ir al Inicio">
+            <ion-icon name="home-outline"></ion-icon>
+            <span>Inicio</span>
+        </a>
+        <a href="#servicios" class="mobile-nav-item" aria-label="Ir a Servicios">
+            <ion-icon name="hardware-chip-outline"></ion-icon>
+            <span>Servicios</span>
+        </a>
+        <a href="#contacto" class="mobile-nav-item" aria-label="Ir a Contacto">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+            <span>Contacto</span>
+        </a>
+        <a href="https://wa.me/50492093796" target="_blank" rel="noopener noreferrer" class="mobile-nav-item text-green-500" aria-label="Abrir WhatsApp">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+            <span>WhatsApp</span>
+        </a>
+    </nav>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" aria-label="Volver al inicio de la página">
+        <ion-icon name="chevron-up-outline" class="text-xl"></ion-icon>
     </button>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/50492093796" target="_blank" rel="noopener noreferrer" class="whatsapp-float fixed bottom-8 right-8 z-50 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-xl hover:scale-110 hover:bg-green-400 transition-all duration-300">
-        <ion-icon name="logo-whatsapp" class="text-3xl text-white"></ion-icon>
+    <!-- Floating WhatsApp Button (Desktop & Mobile) -->
+    <a href="https://wa.me/50492093796" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chatear por WhatsApp">
+        <ion-icon name="logo-whatsapp" class="text-3xl"></ion-icon>
     </a>
 
+    <!-- UI Scripts & Interactivity -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Mobile menu toggle
-            const menuToggle = document.getElementById("menuToggle");
-            const mobileMenu = document.getElementById("mobileMenu");
-            const menuIcon = menuToggle.querySelector("ion-icon");
-            const mobileLinks = document.querySelectorAll(".mobile-link");
-            menuToggle.addEventListener("click", () => {
-                const open = mobileMenu.classList.toggle("translate-x-full");
-                menuIcon.name = open ? "menu-outline" : "close-outline";
-            });
-            mobileLinks.forEach(link => {
-                link.addEventListener("click", () => {
-                    mobileMenu.classList.add("translate-x-full");
-                    menuIcon.name = "menu-outline";
-                });
-            });
-
-            // Theme toggle
+            // Theme toggle with localStorage persistence
             const html = document.documentElement;
             const toggle = document.getElementById("themeToggle");
-            const icon = toggle.querySelector("ion-icon");
-            const logoH = document.getElementById("logoHeader");
             const mobileToggle = document.getElementById("mobileThemeToggle");
+            const icon = toggle.querySelector("ion-icon");
             const mobileIcon = mobileToggle.querySelector("ion-icon");
             const mobileLabel = mobileToggle.querySelector("span");
-            function updateLogo(isDark) {
-                logoH.classList.toggle("brightness-0", isDark);
-                logoH.classList.toggle("invert", isDark);
-            }
+
             function applyTheme(isDark) {
                 icon.name = isDark ? "sunny-outline" : "moon-outline";
                 mobileIcon.name = isDark ? "sunny-outline" : "moon-outline";
                 mobileLabel.textContent = isDark ? "Modo Claro" : "Modo Oscuro";
-                updateLogo(isDark);
             }
-            const saved = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-            if (saved === "dark") { html.classList.add("dark"); applyTheme(true); }
-            toggle.addEventListener("click", () => {
+
+            const savedTheme = localStorage.getItem("theme") || 
+                (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+            if (savedTheme === "dark") {
+                html.classList.add("dark");
+                applyTheme(true);
+            } else {
+                html.classList.remove("dark");
+                applyTheme(false);
+            }
+
+            function handleThemeSwitch() {
                 const isDark = html.classList.toggle("dark");
                 applyTheme(isDark);
                 localStorage.setItem("theme", isDark ? "dark" : "light");
-            });
-            mobileToggle.addEventListener("click", () => {
-                const isDark = html.classList.toggle("dark");
-                applyTheme(isDark);
-                localStorage.setItem("theme", isDark ? "dark" : "light");
+            }
+
+            toggle.addEventListener("click", handleThemeSwitch);
+            mobileToggle.addEventListener("click", handleThemeSwitch);
+
+            // Mobile menu drawer
+            const menuToggle = document.getElementById("menuToggle");
+            const mobileMenu = document.getElementById("mobileMenu");
+            const menuIcon = menuToggle.querySelector("ion-icon");
+            const mobileLinks = document.querySelectorAll(".mobile-link");
+
+            function toggleDrawer() {
+                const isOpen = mobileMenu.classList.toggle("translate-x-full");
+                menuIcon.name = isOpen ? "menu-outline" : "close-outline";
+                document.body.style.overflow = isOpen ? "" : "hidden";
+            }
+
+            menuToggle.addEventListener("click", toggleDrawer);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("translate-x-full");
+                    menuIcon.name = "menu-outline";
+                    document.body.style.overflow = "";
+                });
             });
 
+            // Intersection Observer for scroll animations
             const reveals = document.querySelectorAll(".reveal");
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add("active");
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                    }
                 });
-            }, { threshold: 0.1 });
+            }, { threshold: 0.08 });
+
             reveals.forEach(el => observer.observe(el));
 
-            // Mouse glow
+            // Mouse glow on hero
             const hero = document.getElementById("inicio");
             const glow = document.getElementById("mouseGlow");
-            let glowVisible = false;
-
-            hero.addEventListener("mousemove", (e) => {
-                const rect = hero.getBoundingClientRect();
-                glow.style.left = e.clientX - rect.left + "px";
-                glow.style.top = e.clientY - rect.top + "px";
-                if (!glowVisible) { glow.style.opacity = "1"; glowVisible = true; }
-            });
-
-            hero.addEventListener("mouseleave", () => {
-                glow.style.opacity = "0";
-                glowVisible = false;
-            });
-
-            // Parallax
-            let ticking = false;
-            window.addEventListener("scroll", () => {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        const rect = hero.getBoundingClientRect();
-                        if (rect.bottom > 0 && rect.top < window.innerHeight) {
-                            const offset = (window.innerHeight - rect.top) * 0.04;
-                            hero.style.backgroundPosition = `center ${50 - offset}%`;
-                        }
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-
-            // Contact form
-            const form = document.getElementById("contactForm");
-            const feedback = document.getElementById("formFeedback");
-            const submitBtn = document.getElementById("submitBtn");
-            if (form) {
-                form.addEventListener("submit", async (e) => {
-                    e.preventDefault();
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = "Enviando...";
-                    feedback.classList.add("hidden");
-                    try {
-                        const res = await fetch("send.php", { method: "POST", body: new FormData(form) });
-                        const data = await res.json();
-                        feedback.textContent = data.message;
-                        feedback.className = "text-center text-sm font-semibold " + (data.success ? "text-green-600" : "text-red-500");
-                        feedback.classList.remove("hidden");
-                        if (data.success) form.reset();
-                    } catch {
-                        feedback.textContent = "Error de conexión. Intenta de nuevo.";
-                        feedback.className = "text-center text-sm font-semibold text-red-500";
-                        feedback.classList.remove("hidden");
-                    }
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = "Enviar Mensaje";
+            if (hero && glow) {
+                hero.addEventListener("mousemove", (e) => {
+                    const rect = hero.getBoundingClientRect();
+                    glow.style.left = (e.clientX - rect.left) + "px";
+                    glow.style.top = (e.clientY - rect.top) + "px";
+                    glow.style.opacity = "1";
+                });
+                hero.addEventListener("mouseleave", () => {
+                    glow.style.opacity = "0";
                 });
             }
 
-            // Scroll to top
+            // Scroll to Top visibility
             const scrollBtn = document.getElementById("scrollTop");
+            window.addEventListener("scroll", () => {
+                if (scrollBtn) {
+                    scrollBtn.classList.toggle("visible", window.scrollY > 400);
+                }
+            }, { passive: true });
+
             if (scrollBtn) {
-                window.addEventListener("scroll", () => {
-                    scrollBtn.classList.toggle("visible", window.scrollY > 500);
-                }, { passive: true });
                 scrollBtn.addEventListener("click", () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+            }
+
+            // Auto-select service in contact form when clicking service card button
+            const serviceButtons = document.querySelectorAll(".service-cta-btn");
+            const tipoSelect = document.querySelector("#contactForm select[name='tipo']");
+            serviceButtons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const serviceKey = btn.getAttribute("data-service");
+                    if (tipoSelect && serviceKey) {
+                        tipoSelect.value = serviceKey;
+                    }
+                    setTimeout(() => {
+                        const inputNombre = document.querySelector("#contactForm input[name='nombre']");
+                        if (inputNombre) inputNombre.focus();
+                    }, 400);
+                });
+            });
+
+            // Contact form submit via WhatsApp & background AJAX
+            const form = document.getElementById("contactForm");
+            const feedback = document.getElementById("formFeedback");
+            const submitBtn = document.getElementById("submitBtn");
+
+            if (form) {
+                form.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+
+                    const nombre = form.nombre.value.trim();
+                    const email = form.email.value.trim();
+                    const telefono = form.telefono.value.trim() || "No especificado";
+                    const tipoKey = form.tipo.value;
+                    const tipoTexto = form.tipo.options[form.tipo.selectedIndex]?.text || "Consulta General";
+                    const mensaje = form.mensaje.value.trim();
+
+                    if (!nombre || !email || !mensaje || !tipoKey) {
+                        feedback.className = "p-4 rounded-xl text-center text-sm font-medium bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20";
+                        feedback.textContent = "Por favor completa todos los campos requeridos (*).";
+                        feedback.classList.remove("hidden");
+                        return;
+                    }
+
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `<ion-icon name="hourglass-outline" class="animate-spin text-xl"></ion-icon><span>Conectando con WhatsApp...</span>`;
+                    feedback.className = "hidden";
+
+                    // Build formatted WhatsApp message
+                    const textoWhatsApp = 
+                        `👋 *Hola TECHNO WORLD, deseo solicitar asistencia / cotización:*%0A%0A` +
+                        `👤 *Nombre:* ${encodeURIComponent(nombre)}%0A` +
+                        `📧 *Correo:* ${encodeURIComponent(email)}%0A` +
+                        `📱 *Teléfono:* ${encodeURIComponent(telefono)}%0A` +
+                        `🛠️ *Servicio:* ${encodeURIComponent(tipoTexto)}%0A%0A` +
+                        `📝 *Mensaje:*%0A${encodeURIComponent(mensaje)}%0A%0A` +
+                        `📍 _Enviado desde el sitio web de TECHNO WORLD_`;
+
+                    const waUrl = `https://wa.me/50492093796?text=${textoWhatsApp}`;
+
+                    // Attempt background send.php post
+                    try {
+                        fetch("send.php", {
+                            method: "POST",
+                            body: new FormData(form)
+                        }).catch(() => {});
+                    } catch (err) {}
+
+                    // Show success feedback
+                    feedback.className = "p-4 rounded-xl text-center text-sm font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20";
+                    feedback.innerHTML = `<span>¡Listo! Abriendo WhatsApp con tus datos... Si no abre automáticamente, <a href="${waUrl}" target="_blank" class="underline font-bold text-emerald-600 dark:text-emerald-300">haz clic aquí</a>.</span>`;
+                    feedback.classList.remove("hidden");
+
+                    // Open WhatsApp window/app
+                    window.open(waUrl, "_blank");
+
+                    form.reset();
+
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = `<ion-icon name="logo-whatsapp" class="text-2xl text-white"></ion-icon><span>Enviar Consulta a WhatsApp</span>`;
+                    }, 1500);
                 });
             }
         });
     </script>
 
+    <!-- Canvas Tech Network Animation -->
     <script>
         (function() {
             const canvas = document.getElementById("techCanvas");
             if (!canvas) return;
             const ctx = canvas.getContext("2d");
             const hero = document.getElementById("inicio");
-            let nodes = [], particles = [], w, h, time = 0;
+            let nodes = [], w, h;
 
             function resize() {
                 const rect = hero.getBoundingClientRect();
                 w = canvas.width = rect.width;
                 h = canvas.height = rect.height;
-                createNodes();
+                initNodes();
             }
 
-            function createNodes() {
+            function initNodes() {
                 nodes = [];
-                const count = Math.min(Math.floor((w * h) / 25000), 25);
+                const count = Math.min(Math.floor((w * h) / 32000), 22);
                 for (let i = 0; i < count; i++) {
                     nodes.push({
                         x: Math.random() * w,
                         y: Math.random() * h,
-                        vx: (Math.random() - 0.5) * 0.3,
-                        vy: (Math.random() - 0.5) * 0.3,
-                        r: Math.random() * 2.5 + 1.5,
-                        phase: Math.random() * Math.PI * 2,
+                        vx: (Math.random() - 0.5) * 0.35,
+                        vy: (Math.random() - 0.5) * 0.35,
+                        r: Math.random() * 2 + 1
                     });
                 }
-                particles = [];
-                for (let i = 0; i < count * 2; i++) {
-                    particles.push({ a: 0, b: 0, t: Math.random(), speed: 0.002 + Math.random() * 0.004 });
-                }
             }
 
-            function connectNodes() {
-                for (let i = 0; i < nodes.length; i++) {
-                    for (let j = i + 1; j < nodes.length; j++) {
-                        const dx = nodes[i].x - nodes[j].x;
-                        const dy = nodes[i].y - nodes[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 180) {
-                            const alpha = (1 - dist / 180) * 0.35;
-                            ctx.beginPath();
-                            ctx.moveTo(nodes[i].x, nodes[i].y);
-                            ctx.lineTo(nodes[j].x, nodes[j].y);
-                            ctx.strokeStyle = `rgba(74, 144, 226, ${alpha})`;
-                            ctx.lineWidth = 0.8;
-                            ctx.stroke();
-                            particles.push({
-                                x1: nodes[i].x, y1: nodes[i].y,
-                                x2: nodes[j].x, y2: nodes[j].y,
-                                t: Math.random(),
-                                speed: 0.002 + Math.random() * 0.003,
-                                dist: dist,
-                            });
-                        }
-                    }
-                }
-            }
-
-            function animate() {
+            function draw() {
                 ctx.clearRect(0, 0, w, h);
-                time++;
-                const pulse = Math.sin(time * 0.02) * 0.3 + 0.7;
 
-                for (const n of nodes) {
+                for (let i = 0; i < nodes.length; i++) {
+                    const n = nodes[i];
                     n.x += n.vx;
                     n.y += n.vy;
+
                     if (n.x < 0 || n.x > w) n.vx *= -1;
                     if (n.y < 0 || n.y > h) n.vy *= -1;
-                }
 
-                const connections = [];
-                for (let i = 0; i < nodes.length; i++) {
-                    for (let j = i + 1; j < nodes.length; j++) {
-                        const dx = nodes[i].x - nodes[j].x;
-                        const dy = nodes[i].y - nodes[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 180) {
-                            const alpha = (1 - dist / 180) * 0.3;
-                            ctx.beginPath();
-                            ctx.moveTo(nodes[i].x, nodes[i].y);
-                            ctx.lineTo(nodes[j].x, nodes[j].y);
-                            ctx.strokeStyle = `rgba(74, 144, 226, ${alpha})`;
-                            ctx.lineWidth = 0.6;
-                            ctx.stroke();
-                            connections.push({ x1: nodes[i].x, y1: nodes[i].y, x2: nodes[j].x, y2: nodes[j].y, dist });
-                        }
-                    }
-                }
-
-                for (const c of connections) {
-                    for (const p of particles) {
-                        if (Math.random() > 0.999) {
-                            p.t = 0;
-                            p.x1 = c.x1; p.y1 = c.y1;
-                            p.x2 = c.x2; p.y2 = c.y2;
-                        }
-                    }
-                }
-
-                for (const p of particles) {
-                    if (p.x1 === undefined) continue;
-                    p.t += p.speed;
-                    if (p.t > 1) { p.t = 0; continue; }
-                    const x = p.x1 + (p.x2 - p.x1) * p.t;
-                    const y = p.y1 + (p.y2 - p.y1) * p.t;
-                    const a = Math.sin(p.t * Math.PI) * 0.8;
-                    ctx.beginPath();
-                    ctx.arc(x, y, 2, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(74, 144, 226, ${a})`;
-                    ctx.fill();
-                }
-
-                for (const n of nodes) {
-                    const glow = Math.sin(time * 0.03 + n.phase) * 0.4 + 0.6;
-                    const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
-                    grad.addColorStop(0, `rgba(74, 144, 226, ${glow * 0.9})`);
-                    grad.addColorStop(0.3, `rgba(74, 144, 226, ${glow * 0.3})`);
-                    grad.addColorStop(1, "rgba(74, 144, 226, 0)");
-                    ctx.beginPath();
-                    ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2);
-                    ctx.fillStyle = grad;
-                    ctx.fill();
                     ctx.beginPath();
                     ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(255, 255, 255, ${glow * 0.8})`;
+                    ctx.fillStyle = "rgba(56, 189, 248, 0.6)";
                     ctx.fill();
+
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const n2 = nodes[j];
+                        const dx = n.x - n2.x;
+                        const dy = n.y - n2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 150) {
+                            const alpha = (1 - dist / 150) * 0.25;
+                            ctx.beginPath();
+                            ctx.moveTo(n.x, n.y);
+                            ctx.lineTo(n2.x, n2.y);
+                            ctx.strokeStyle = `rgba(74, 144, 226, ${alpha})`;
+                            ctx.lineWidth = 0.75;
+                            ctx.stroke();
+                        }
+                    }
                 }
 
-                requestAnimationFrame(animate);
+                requestAnimationFrame(draw);
             }
 
             window.addEventListener("resize", resize);
             resize();
-            animate();
+            draw();
         })();
     </script>
 </body>
