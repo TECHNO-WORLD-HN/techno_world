@@ -868,9 +868,13 @@
         </a>
     </nav>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollTop" aria-label="Volver al inicio de la página">
-        <ion-icon name="chevron-up-outline" class="text-xl"></ion-icon>
+    <!-- Scroll to Top Button (With Circular Progress Ring) -->
+    <button id="scrollTop" aria-label="Volver al inicio de la página" title="Volver arriba">
+        <svg class="progress-ring" width="48" height="48" viewBox="0 0 48 48">
+            <circle class="progress-ring-bg" cx="24" cy="24" r="20" fill="none" stroke-width="3"/>
+            <circle class="progress-ring-circle" id="scrollProgressCircle" cx="24" cy="24" r="20" fill="none" stroke-width="3" stroke-dasharray="125.66" stroke-dashoffset="125.66"/>
+        </svg>
+        <ion-icon name="arrow-up-outline"></ion-icon>
     </button>
 
     <!-- Floating WhatsApp Button (Desktop & Mobile) -->
@@ -964,15 +968,36 @@
                 });
             }
 
-            // Scroll to Top visibility
+            // Scroll to Top with Circular Progress Indicator
             const scrollBtn = document.getElementById("scrollTop");
-            window.addEventListener("scroll", () => {
-                if (scrollBtn) {
-                    scrollBtn.classList.toggle("visible", window.scrollY > 400);
-                }
-            }, { passive: true });
+            const progressCircle = document.getElementById("scrollProgressCircle");
 
-            if (scrollBtn) {
+            if (scrollBtn && progressCircle) {
+                const radius = progressCircle.r.baseVal.value;
+                const circumference = 2 * Math.PI * radius; // ~125.66
+                progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+                progressCircle.style.strokeDashoffset = `${circumference}`;
+
+                function updateScrollProgress() {
+                    const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollCurrent = window.scrollY;
+
+                    if (scrollTotal > 0) {
+                        const progress = Math.min(Math.max(scrollCurrent / scrollTotal, 0), 1);
+                        const offset = circumference - (progress * circumference);
+                        progressCircle.style.strokeDashoffset = offset;
+                    }
+
+                    if (scrollCurrent > 250) {
+                        scrollBtn.classList.add("visible");
+                    } else {
+                        scrollBtn.classList.remove("visible");
+                    }
+                }
+
+                window.addEventListener("scroll", updateScrollProgress, { passive: true });
+                updateScrollProgress();
+
                 scrollBtn.addEventListener("click", () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                 });
