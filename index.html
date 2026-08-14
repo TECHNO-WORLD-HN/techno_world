@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>TECHNO WORLD — Soluciones TI, Reparación y Desarrollo de Sistemas</title>
+    <title>TECHNO WORLD</title>
     <meta name="description" content="Servicios tecnológicos profesionales en Catacamas, Olancho: reparación de computadoras, desarrollo de sistemas a medida y soporte técnico corporativo.">
     <link rel="icon" type="image/png" href="assets/img/LOGO%20TW%20PERFIL%202.png">
 
@@ -58,14 +58,8 @@
     <header class="fixed top-0 w-full z-50 bg-[var(--header-bg)] backdrop-blur-xl border-b border-[var(--border-subtle)] h-20 transition-colors duration-300">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
             <!-- Brand Logo -->
-            <a href="#inicio" class="flex items-center gap-3.5 group focus:outline-none" aria-label="TECHNO WORLD Inicio">
-                <div class="relative w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-transparent border border-slate-200 dark:border-transparent overflow-hidden shadow-sm dark:shadow-none transition-colors">
-                    <img src="assets/img/LOGO%20TW%20PERFIL%202.png" alt="TECHNO WORLD" class="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-110 dark:brightness-0 dark:invert" id="logoHeader">
-                </div>
-                <span class="text-xl brand-font font-extrabold tracking-tight">
-                    <span class="text-slate-900 dark:text-white transition-colors">TECHNO</span>
-                    <span class="text-azul-500 dark:text-white transition-colors">WORLD</span>
-                </span>
+            <a href="#inicio" class="flex items-center group focus:outline-none py-1" aria-label="TECHNO WORLD Inicio">
+                <img src="assets/img/LOGO%20TW%20PERFIL%202.png" alt="TECHNO WORLD" class="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 dark:brightness-0 dark:invert" id="logoHeader">
             </a>
 
             <!-- Desktop Navigation Links -->
@@ -166,8 +160,8 @@
                     </div>
 
                     <!-- Main Headline -->
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-[1.12] mb-6 reveal">
-                        Expertos en <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-sky-200 to-white">Sistemas</span> y Soluciones TI
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl brand-font font-extrabold text-white tracking-tight leading-tight whitespace-nowrap mb-6 reveal">
+                        TECHNO WORLD
                     </h1>
 
                     <!-- Slogan & Description -->
@@ -218,123 +212,284 @@
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="servicios" class="py-24 sm:py-32 bg-[var(--bg-body)] relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Services Section (With In-Place Vertical Scroll Stream & Dynamic Immersive Canvas) -->
+        <section id="servicios" class="py-24 sm:py-32 bg-[var(--bg-body)] relative overflow-hidden">
+            
+            <!-- Dynamic Immersive Canvas & Ambient Glow Behind Services -->
+            <canvas id="servicesCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+            <div id="servicesAmbientGlow" class="services-ambient-glow"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 
                 <!-- Section Header -->
-                <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20 reveal">
+                <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12 reveal">
                     <span class="text-azul-500 dark:text-cyan-400 font-semibold uppercase tracking-widest text-xs sm:text-sm">Nuestra Oferta</span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mt-3 mb-5 text-[var(--text-heading)]">Servicios Profesionales</h2>
-                    <div class="flex justify-center mb-5">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mt-2 mb-3 text-[var(--text-heading)]">Servicios Profesionales</h2>
+                    <div class="flex justify-center mb-3">
                         <div class="section-divider"></div>
                     </div>
-                    <p class="text-[var(--text-muted)] text-base sm:text-lg leading-relaxed">Soluciones integrales de hardware y software respaldadas por diagnóstico preciso y soporte ágil.</p>
+                    <p class="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed">Soluciones integrales de hardware y software respaldadas por diagnóstico preciso y soporte ágil.</p>
                 </div>
 
-                <!-- Services Grid -->
-                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Interactive Step Quick Jump -->
+                <div class="services-step-tracker reveal" id="serviceStepTracker">
+                    <a href="#servicio-reparacion" data-step="0" class="step-indicator active">
+                        <span class="w-5 h-5 rounded-full bg-azul-500/20 dark:bg-sky-400/20 text-xs flex items-center justify-center font-bold">1</span>
+                        <span>Hardware & Reparación</span>
+                    </a>
+                    <a href="#servicio-desarrollo" data-step="1" class="step-indicator">
+                        <span class="w-5 h-5 rounded-full bg-azul-500/20 dark:bg-sky-400/20 text-xs flex items-center justify-center font-bold">2</span>
+                        <span>Desarrollo de Software</span>
+                    </a>
+                    <a href="#servicio-soporte" data-step="2" class="step-indicator">
+                        <span class="w-5 h-5 rounded-full bg-azul-500/20 dark:bg-sky-400/20 text-xs flex items-center justify-center font-bold">3</span>
+                        <span>Redes & Soporte TI</span>
+                    </a>
+                </div>
+
+                <!-- Vertical Scroll Stream (Services appear sequentially along the vertical scroll journey) -->
+                <div class="services-vertical-stream" id="servicesVerticalStream">
                     
-                    <!-- Card 1: Reparación y Mantenimiento -->
-                    <div class="card-service flex flex-col justify-between reveal">
-                        <div>
-                            <div class="service-icon-box mb-6 text-azul-500 dark:text-cyan-400">
-                                <ion-icon name="construct-outline" class="text-3xl"></ion-icon>
+                    <!-- Row 1: Reparación y Mantenimiento -->
+                    <div id="servicio-reparacion" data-service-idx="0" class="service-showcase-row showcase-in-view grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7">
+                            <div class="card-service-hero">
+                                <div>
+                                    <div class="service-badge-pill">
+                                        <ion-icon name="flash-outline"></ion-icon>
+                                        <span>Diagnóstico & Hardware Especializado</span>
+                                    </div>
+                                    <div class="service-icon-box mb-5 text-azul-500 dark:text-cyan-400">
+                                        <ion-icon name="construct-outline" class="text-3xl"></ion-icon>
+                                    </div>
+                                    <h3 class="text-2xl sm:text-3xl font-display font-bold mb-3 text-[var(--text-heading)]">Reparación y Mantenimiento de Hardware</h3>
+                                    <p class="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed mb-6">
+                                        Diagnóstico exhaustivo a nivel de componentes electrónicos, mantenimiento preventivo y reparación avanzada para computadoras de escritorio, laptops de alto rendimiento y servidores empresariales.
+                                    </p>
+                                    <ul class="space-y-2.5 text-sm text-[var(--text-muted)] mb-6">
+                                        <li class="flex items-center gap-3">
+                                            <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                            <span>Mantenimiento preventivo & cambio de pasta térmica de alto rendimiento</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                            <span>Reparación de circuitos, motherboard, fuentes de poder y pantallas</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                            <span>Recuperación de datos críticos y optimización de velocidad</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <a href="#contacto" data-service="reparacion" class="btn-primary inline-flex justify-center items-center gap-2 w-full sm:w-auto px-8 py-3.5 service-cta-btn">
+                                        <span>Solicitar Reparación</span>
+                                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                                    </a>
+                                </div>
                             </div>
-                            <h3 class="text-xl sm:text-2xl font-display font-bold mb-3 text-[var(--text-heading)]">Reparación y Mantenimiento</h3>
-                            <p class="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed mb-6">
-                                Diagnóstico exhaustivo, reparación a nivel de componentes y mantenimiento preventivo de computadoras, laptops y servidores.
-                            </p>
-                            <ul class="space-y-3 text-sm text-[var(--text-muted)] mb-8">
-                                <li class="flex items-center gap-3">
-                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
-                                    <span>Mantenimiento preventivo & correctivo</span>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
-                                    <span>Reparación de hardware & optimización térmica</span>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
-                                    <span>Formateo, instalación y recuperación de datos</span>
-                                </li>
-                            </ul>
                         </div>
-                        <div>
-                            <a href="#contacto" data-service="reparacion" class="w-full btn-outline-tech service-cta-btn">
-                                <span>Solicitar Reparación</span>
-                                <ion-icon name="chevron-forward-outline"></ion-icon>
-                            </a>
+
+                        <!-- Telemetry Showcase 1: Hardware Diagnostics -->
+                        <div class="lg:col-span-5">
+                            <div class="showcase-telemetry-box font-mono">
+                                <div class="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3 mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                        <span class="text-xs font-bold tracking-wider uppercase text-[var(--text-heading)]">Módulo de Telemetría Hardware</span>
+                                    </div>
+                                    <span class="text-xs text-[var(--text-dim)]">HW-SCAN-OK</span>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-3 mb-4 text-xs">
+                                    <div class="p-3 rounded-xl bg-sky-500/5 border border-sky-500/15">
+                                        <div class="text-[var(--text-dim)] mb-1">Temperatura CPU</div>
+                                        <div class="text-base font-bold text-emerald-500">38°C (Óptima)</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-sky-500/5 border border-sky-500/15">
+                                        <div class="text-[var(--text-dim)] mb-1">Salud SSD NVMe</div>
+                                        <div class="text-base font-bold text-sky-400">100% Excelente</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-sky-500/5 border border-sky-500/15">
+                                        <div class="text-[var(--text-dim)] mb-1">Voltajes +12V / +5V</div>
+                                        <div class="text-base font-bold text-emerald-500">Estables (±0.2%)</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-sky-500/5 border border-sky-500/15">
+                                        <div class="text-[var(--text-dim)] mb-1">Prueba de Estrés</div>
+                                        <div class="text-base font-bold text-sky-400">0 Errores</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-3.5 rounded-xl bg-[var(--bg-input)] border border-[var(--border-subtle)]">
+                                    <div class="flex justify-between text-xs mb-2">
+                                        <span class="text-[var(--text-muted)]">Diagnóstico Electrónico de Buses</span>
+                                        <span class="text-sky-400 font-bold">100% Completado</span>
+                                    </div>
+                                    <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-azul-500 to-sky-400 rounded-full w-full"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Card 2: Desarrollo de Sistemas -->
-                    <div class="card-service flex flex-col justify-between reveal md:-translate-y-4 border-azul-500/30 shadow-lg">
-                        <div>
-                            <div class="inline-block px-3 py-1 bg-azul-500/10 text-azul-500 dark:text-cyan-400 text-xs font-bold rounded-full mb-4">
-                                Solución Digital
+                    <!-- Row 2: Desarrollo de Sistemas (Alternating Layout) -->
+                    <div id="servicio-desarrollo" data-service-idx="1" class="service-showcase-row grid lg:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Telemetry Showcase 2: Code Editor & Build Simulator (Left Column on Desktop) -->
+                        <div class="lg:col-span-5 order-2 lg:order-1">
+                            <div class="showcase-telemetry-box font-mono">
+                                <div class="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3 mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                                        <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                                        <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                                        <span class="text-xs text-[var(--text-dim)] ml-2">AppEngine.ts</span>
+                                    </div>
+                                    <span class="text-xs text-sky-400">TypeScript 5.0</span>
+                                </div>
+
+                                <div class="p-3.5 rounded-xl bg-slate-900 text-slate-100 text-xs space-y-1.5 leading-relaxed overflow-hidden">
+                                    <div><span class="text-purple-400">import</span> { <span class="text-sky-300">TechnoCore</span> } <span class="text-purple-400">from</span> <span class="text-emerald-300">'@techno-world/cloud'</span>;</div>
+                                    <div class="text-slate-500">// Automatización de Procesos Empresariales</div>
+                                    <div><span class="text-purple-400">export const</span> <span class="text-yellow-300">system</span> = <span class="text-purple-400">new</span> <span class="text-sky-300">TechnoCore</span>({</div>
+                                    <div class="pl-4"><span class="text-sky-300">database</span>: <span class="text-emerald-300">'PostgreSQL Enterprise'</span>,</div>
+                                    <div class="pl-4"><span class="text-sky-300">latency</span>: <span class="text-amber-300">'sub-15ms'</span>,</div>
+                                    <div class="pl-4"><span class="text-sky-300">security</span>: <span class="text-emerald-300">'AES-256-GCM'</span></div>
+                                    <div>});</div>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs mt-3">
+                                    <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold">
+                                        <ion-icon name="checkmark-circle-outline" class="text-base"></ion-icon>
+                                        <span>Build: Passed (0 errors)</span>
+                                    </div>
+                                    <span class="text-[var(--text-dim)]">Latency: 12ms</span>
+                                </div>
                             </div>
-                            <div class="service-icon-box mb-6 text-azul-500 dark:text-cyan-400">
-                                <ion-icon name="code-slash-outline" class="text-3xl"></ion-icon>
+                        </div>
+
+                        <!-- Content 2 (Right Column on Desktop) -->
+                        <div class="lg:col-span-7 order-1 lg:order-2">
+                            <div class="card-service-hero">
+                                <div>
+                                    <div class="service-badge-pill">
+                                        <ion-icon name="rocket-outline"></ion-icon>
+                                        <span>Arquitectura Cloud & Full-Stack</span>
+                                    </div>
+                                    <div class="service-icon-box mb-5 text-azul-500 dark:text-cyan-400">
+                                        <ion-icon name="code-slash-outline" class="text-3xl"></ion-icon>
+                                    </div>
+                                    <h3 class="text-2xl sm:text-3xl font-display font-bold mb-3 text-[var(--text-heading)]">Desarrollo de Sistemas & Software a Medida</h3>
+                                    <p class="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed mb-6">
+                                        Diseñamos y programamos software corporativo, aplicaciones web de alto impacto y plataformas escalables para digitalizar procesos, optimizar inventarios y acelerar ventas.
+                                    </p>
+                                    <ul class="space-y-2.5 text-sm text-[var(--text-muted)] mb-6">
+                                        <li class="flex items-center gap-3">
+                                            <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                            <span>Sistemas de facturación, punto de venta, inventario y ERP personalizado</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                            <span>Integración de pasarelas de pago, APIs REST y bases de datos cloud</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                            <span>Experiencia de usuario (UX/UI) moderna y 100% responsiva para móviles</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <a href="#contacto" data-service="desarrollo" class="btn-primary inline-flex justify-center items-center gap-2 w-full sm:w-auto px-8 py-3.5 service-cta-btn">
+                                        <span>Cotizar Desarrollo</span>
+                                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                                    </a>
+                                </div>
                             </div>
-                            <h3 class="text-xl sm:text-2xl font-display font-bold mb-3 text-[var(--text-heading)]">Desarrollo de Sistemas</h3>
-                            <p class="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed mb-6">
-                                Aplicaciones web, sistemas de gestión y software a medida para automatizar y escalar los procesos de tu negocio.
-                            </p>
-                            <ul class="space-y-3 text-sm text-[var(--text-muted)] mb-8">
-                                <li class="flex items-center gap-3">
-                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
-                                    <span>Sistemas web y plataformas a medida</span>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
-                                    <span>Software de facturación e inventario</span>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
-                                    <span>Integración de APIs y bases de datos cloud</span>
-                                </li>
-                            </ul>
                         </div>
-                        <div>
-                            <a href="#contacto" data-service="desarrollo" class="w-full btn-primary justify-center text-sm service-cta-btn">
-                                <span>Cotizar Desarrollo</span>
-                                <ion-icon name="arrow-forward-outline"></ion-icon>
-                            </a>
-                        </div>
+
                     </div>
 
-                    <!-- Card 3: Soporte Técnico -->
-                    <div class="card-service flex flex-col justify-between reveal">
-                        <div>
-                            <div class="service-icon-box mb-6 text-azul-500 dark:text-cyan-400">
-                                <ion-icon name="headset-outline" class="text-3xl"></ion-icon>
+                    <!-- Row 3: Soporte Técnico y Redes -->
+                    <div id="servicio-soporte" data-service-idx="2" class="service-showcase-row grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7">
+                            <div class="card-service-hero">
+                                <div>
+                                    <div class="service-badge-pill">
+                                        <ion-icon name="radio-outline"></ion-icon>
+                                        <span>Infraestructura & Soporte 24/7</span>
+                                    </div>
+                                    <div class="service-icon-box mb-5 text-azul-500 dark:text-cyan-400">
+                                        <ion-icon name="headset-outline" class="text-3xl"></ion-icon>
+                                    </div>
+                                    <h3 class="text-2xl sm:text-3xl font-display font-bold mb-3 text-[var(--text-heading)]">Soporte Técnico & Redes Corporativas</h3>
+                                    <p class="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed mb-6">
+                                        Asistencia técnica continua presencial y remota, diseño y certificación de infraestructura de redes cableadas/inalámbricas y planes de ciberseguridad para garantizar la continuidad operativa.
+                                    </p>
+                                    <ul class="space-y-2.5 text-sm text-[var(--text-muted)] mb-6">
+                                        <li class="flex items-center gap-3">
+                                            <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                            <span>Mesa de ayuda ágil y soporte remoto inmediato ante contingencias</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                            <span>Instalación de cableado estructurado, fibra óptica, routers y Wi-Fi 6</span>
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
+                                            <span>Copias de seguridad automatizadas y protección avanzada contra malware</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <a href="#contacto" data-service="soporte" class="btn-primary inline-flex justify-center items-center gap-2 w-full sm:w-auto px-8 py-3.5 service-cta-btn">
+                                        <span>Solicitar Asistencia</span>
+                                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                                    </a>
+                                </div>
                             </div>
-                            <h3 class="text-xl sm:text-2xl font-display font-bold mb-3 text-[var(--text-heading)]">Soporte Técnico y Redes</h3>
-                            <p class="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed mb-6">
-                                Asistencia continua remota y presencial para resolver incidencias, configurar redes y garantizar la operatividad de tu empresa.
-                            </p>
-                            <ul class="space-y-3 text-sm text-[var(--text-muted)] mb-8">
-                                <li class="flex items-center gap-3">
-                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
-                                    <span>Mesa de ayuda y soporte remoto ágil</span>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
-                                    <span>Instalación de redes cableadas y Wi-Fi</span>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <ion-icon name="checkmark-circle" class="text-azul-500 dark:text-cyan-400 text-lg shrink-0"></ion-icon>
-                                    <span>Monitoreo, copias de seguridad y seguridad TI</span>
-                                </li>
-                            </ul>
                         </div>
-                        <div>
-                            <a href="#contacto" data-service="soporte" class="w-full btn-outline-tech service-cta-btn">
-                                <span>Solicitar Asistencia</span>
-                                <ion-icon name="chevron-forward-outline"></ion-icon>
-                            </a>
+
+                        <!-- Telemetry Showcase 3: NOC & Network Health -->
+                        <div class="lg:col-span-5">
+                            <div class="showcase-telemetry-box font-mono text-xs">
+                                <div class="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3 mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                        <span class="font-bold tracking-wider uppercase text-[var(--text-heading)]">Centro de Operaciones de Red (NOC)</span>
+                                    </div>
+                                    <span class="text-emerald-500 font-bold">99.99% Uptime</span>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-3 mb-4">
+                                    <div class="p-3 rounded-xl bg-sky-500/5 border border-sky-500/15">
+                                        <div class="text-[var(--text-dim)] mb-1">Ping Servidores</div>
+                                        <div class="text-base font-bold text-emerald-500">4 ms</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-sky-500/5 border border-sky-500/15">
+                                        <div class="text-[var(--text-dim)] mb-1">Firewall & IDS</div>
+                                        <div class="text-base font-bold text-sky-400">0 Amenazas</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-sky-500/5 border border-sky-500/15">
+                                        <div class="text-[var(--text-dim)] mb-1">Túnel VPN</div>
+                                        <div class="text-base font-bold text-emerald-500">AES-256 Activo</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-sky-500/5 border border-sky-500/15">
+                                        <div class="text-[var(--text-dim)] mb-1">Backup Cloud</div>
+                                        <div class="text-base font-bold text-sky-400">Sincronizado</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-between">
+                                    <div class="flex items-center gap-2 text-sky-400 font-bold">
+                                        <ion-icon name="shield-checkmark" class="text-lg"></ion-icon>
+                                        <span>Infraestructura Segura & Monitorizada</span>
+                                    </div>
+                                    <span class="text-emerald-500">24/7 SLA</span>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
@@ -1092,30 +1247,36 @@
             if (!canvas) return;
             const ctx = canvas.getContext("2d");
             const hero = document.getElementById("inicio");
-            let nodes = [], w, h;
+            let nodes = [], w = 0, h = 0;
+            let isHeroVisible = true;
+            let animId = null;
 
             function resize() {
-                const rect = hero.getBoundingClientRect();
-                w = canvas.width = rect.width;
-                h = canvas.height = rect.height;
+                w = canvas.width = hero.clientWidth;
+                h = canvas.height = hero.clientHeight;
                 initNodes();
             }
 
             function initNodes() {
                 nodes = [];
-                const count = Math.min(Math.floor((w * h) / 32000), 22);
+                const count = Math.min(Math.floor((w * h) / 30000), 24);
                 for (let i = 0; i < count; i++) {
                     nodes.push({
                         x: Math.random() * w,
                         y: Math.random() * h,
                         vx: (Math.random() - 0.5) * 0.35,
                         vy: (Math.random() - 0.5) * 0.35,
-                        r: Math.random() * 2 + 1
+                        r: Math.random() * 2 + 1.2
                     });
                 }
             }
 
             function draw() {
+                if (!isHeroVisible) {
+                    animId = null;
+                    return;
+                }
+
                 ctx.clearRect(0, 0, w, h);
 
                 for (let i = 0; i < nodes.length; i++) {
@@ -1149,12 +1310,431 @@
                     }
                 }
 
-                requestAnimationFrame(draw);
+                animId = requestAnimationFrame(draw);
             }
+
+            const heroObserver = new IntersectionObserver((entries) => {
+                const entry = entries[0];
+                isHeroVisible = entry.isIntersecting;
+                if (isHeroVisible && !animId) {
+                    draw();
+                }
+            }, { threshold: 0 });
+
+            heroObserver.observe(hero);
 
             window.addEventListener("resize", resize);
             resize();
             draw();
+        })();
+    </script>
+
+    <!-- Services Dynamic Immersive Canvas & Scroll Presentation Engine -->
+    <script>
+        (function() {
+            const canvas = document.getElementById("servicesCanvas");
+            const servicesSection = document.getElementById("servicios");
+            const ambientGlow = document.getElementById("servicesAmbientGlow");
+            const tabButtons = document.querySelectorAll("#serviceTabs .service-tab-pill");
+            const serviceCards = document.querySelectorAll("#servicesGrid .card-service");
+
+            if (!canvas || !servicesSection) return;
+
+            const ctx = canvas.getContext("2d");
+            let w, h, dpr;
+            let currentMode = 0; // 0: Hardware/Circuits, 1: Software/Code, 2: Networks/Radar
+            let targetMode = 0;
+            let modeTransition = 1; // 1 = fully transitioned
+
+            // --- Procedural Elements for each mode ---
+            // Mode 0: Circuit Board Traces & Pulses
+            let circuitPaths = [];
+            let circuitPulses = [];
+
+            // Mode 1: Floating Code & Syntax Particles
+            const codeSnippets = [
+                "{ }", "</>", "const sys = true;", "git commit -m", "010101",
+                "async/await", "npm run dev", "API.fetch()", "=> { return; }",
+                "SELECT *", "status: 200", "[ ...data ]", "export default",
+                "Cloud.deploy()", "0x7F4A"
+            ];
+            let codeParticles = [];
+
+            // Mode 2: Network Radar & Server Mesh
+            let networkNodes = [];
+            let networkPackets = [];
+            let radarWaves = [];
+
+            function resize() {
+                const rect = servicesSection.getBoundingClientRect();
+                dpr = window.devicePixelRatio || 1;
+                w = canvas.width = rect.width * dpr;
+                h = canvas.height = rect.height * dpr;
+                ctx.scale(dpr, dpr);
+                initModeElements(rect.width, rect.height);
+            }
+
+            function initModeElements(width, height) {
+                // Initialize Circuits
+                circuitPaths = [];
+                circuitPulses = [];
+                const gridSpacing = 80;
+                for (let x = 40; x < width; x += gridSpacing) {
+                    for (let y = 40; y < height; y += gridSpacing) {
+                        if (Math.random() > 0.45) {
+                            const pathLength = Math.random() * 120 + 60;
+                            const isHorizontal = Math.random() > 0.5;
+                            circuitPaths.push({
+                                x1: x, y1: y,
+                                x2: isHorizontal ? x + pathLength : x,
+                                y2: isHorizontal ? y : y + pathLength,
+                                hasPad: Math.random() > 0.3
+                            });
+                        }
+                    }
+                }
+                for (let i = 0; i < 18; i++) {
+                    const path = circuitPaths[Math.floor(Math.random() * circuitPaths.length)];
+                    if (path) {
+                        circuitPulses.push({
+                            path: path,
+                            t: Math.random(),
+                            speed: 0.004 + Math.random() * 0.008
+                        });
+                    }
+                }
+
+                // Initialize Code Particles
+                codeParticles = [];
+                for (let i = 0; i < 22; i++) {
+                    codeParticles.push({
+                        text: codeSnippets[Math.floor(Math.random() * codeSnippets.length)],
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vy: -(0.3 + Math.random() * 0.6),
+                        alpha: Math.random() * 0.6 + 0.2,
+                        size: Math.floor(Math.random() * 4) + 11
+                    });
+                }
+
+            let cachedWidth = 0, cachedHeight = 0;
+            let isSectionVisible = false;
+            let animationFrameId = null;
+
+            function resize() {
+                cachedWidth = servicesSection.clientWidth;
+                cachedHeight = servicesSection.clientHeight;
+                dpr = Math.min(window.devicePixelRatio || 1, 2); // Cap at 2x to avoid GPU memory overhead
+                w = canvas.width = cachedWidth * dpr;
+                h = canvas.height = cachedHeight * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                initModeElements(cachedWidth, cachedHeight);
+            }
+
+            function initModeElements(width, height) {
+                if (width <= 0 || height <= 0) return;
+                // Initialize Circuits
+                circuitPaths = [];
+                circuitPulses = [];
+                const gridSpacing = 90;
+                for (let x = 40; x < width; x += gridSpacing) {
+                    for (let y = 40; y < height; y += gridSpacing) {
+                        if (Math.random() > 0.5) {
+                            const pathLength = Math.random() * 120 + 60;
+                            const isHorizontal = Math.random() > 0.5;
+                            circuitPaths.push({
+                                x1: x, y1: y,
+                                x2: isHorizontal ? x + pathLength : x,
+                                y2: isHorizontal ? y : y + pathLength,
+                                hasPad: Math.random() > 0.3
+                            });
+                        }
+                    }
+                }
+                for (let i = 0; i < 14; i++) {
+                    const path = circuitPaths[Math.floor(Math.random() * circuitPaths.length)];
+                    if (path) {
+                        circuitPulses.push({
+                            path: path,
+                            t: Math.random(),
+                            speed: 0.005 + Math.random() * 0.007
+                        });
+                    }
+                }
+
+                // Initialize Code Particles
+                codeParticles = [];
+                for (let i = 0; i < 18; i++) {
+                    codeParticles.push({
+                        text: codeSnippets[Math.floor(Math.random() * codeSnippets.length)],
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vy: -(0.3 + Math.random() * 0.5),
+                        alpha: Math.random() * 0.5 + 0.2
+                    });
+                }
+
+                // Initialize Network Radar & Nodes
+                networkNodes = [];
+                networkPackets = [];
+                radarWaves = [];
+                const nodeCount = Math.min(Math.floor((width * height) / 45000), 14);
+                for (let i = 0; i < nodeCount; i++) {
+                    networkNodes.push({
+                        x: Math.random() * (width - 80) + 40,
+                        y: Math.random() * (height - 80) + 40,
+                        r: Math.random() * 2.5 + 2.5,
+                        pulse: Math.random() * Math.PI * 2
+                    });
+                }
+                for (let i = 0; i < 2; i++) {
+                    radarWaves.push({
+                        x: width * (0.25 + i * 0.5),
+                        y: height * (0.3 + (i % 2) * 0.4),
+                        r: Math.random() * 100,
+                        maxR: 200 + Math.random() * 60,
+                        speed: 0.7 + Math.random() * 0.5
+                    });
+                }
+                for (let i = 0; i < 10; i++) {
+                    const n1 = Math.floor(Math.random() * networkNodes.length);
+                    let n2 = Math.floor(Math.random() * networkNodes.length);
+                    while (n2 === n1 && networkNodes.length > 1) n2 = Math.floor(Math.random() * networkNodes.length);
+                    networkPackets.push({
+                        n1: n1, n2: n2,
+                        t: Math.random(),
+                        speed: 0.005 + Math.random() * 0.007
+                    });
+                }
+            }
+
+            // Draw Mode 0: Hardware / Circuit Diagnostics
+            function drawCircuits(width, height, alpha) {
+                if (alpha <= 0) return;
+                ctx.save();
+                ctx.globalAlpha = alpha;
+
+                ctx.strokeStyle = "rgba(74, 144, 226, 0.16)";
+                ctx.lineWidth = 1.25;
+                for (const p of circuitPaths) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x1, p.y1);
+                    ctx.lineTo(p.x2, p.y2);
+                    ctx.stroke();
+
+                    if (p.hasPad) {
+                        ctx.beginPath();
+                        ctx.arc(p.x1, p.y1, 2.5, 0, Math.PI * 2);
+                        ctx.fillStyle = "rgba(63, 89, 129, 0.35)";
+                        ctx.fill();
+                    }
+                }
+
+                // Pulses (Electrons)
+                for (const pulse of circuitPulses) {
+                    pulse.t += pulse.speed;
+                    if (pulse.t > 1) {
+                        pulse.t = 0;
+                        pulse.path = circuitPaths[Math.floor(Math.random() * circuitPaths.length)] || pulse.path;
+                    }
+                    const px = pulse.path.x1 + (pulse.path.x2 - pulse.path.x1) * pulse.t;
+                    const py = pulse.path.y1 + (pulse.path.y2 - pulse.path.y1) * pulse.t;
+
+                    ctx.beginPath();
+                    ctx.arc(px, py, 6, 0, Math.PI * 2);
+                    ctx.fillStyle = "rgba(56, 189, 248, 0.35)";
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(px, py, 2, 0, Math.PI * 2);
+                    ctx.fillStyle = "#ffffff";
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+
+            // Draw Mode 1: Software Code Matrix
+            function drawCodeMatrix(width, height, alpha) {
+                if (alpha <= 0) return;
+                ctx.save();
+                ctx.globalAlpha = alpha;
+                ctx.font = '600 12px "Inter", monospace';
+
+                for (const p of codeParticles) {
+                    p.y += p.vy;
+                    if (p.y < -20) {
+                        p.y = height + 20;
+                        p.x = Math.random() * width;
+                        p.text = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+                    }
+
+                    ctx.fillStyle = `rgba(56, 189, 248, ${p.alpha * 0.7})`;
+                    ctx.fillText(p.text, p.x, p.y);
+                }
+                ctx.restore();
+            }
+
+            // Draw Mode 2: Network Radar & Mesh
+            function drawNetworkRadar(width, height, alpha) {
+                if (alpha <= 0) return;
+                ctx.save();
+                ctx.globalAlpha = alpha;
+
+                // Radar expanding rings
+                for (const r of radarWaves) {
+                    r.r += r.speed;
+                    if (r.r > r.maxR) r.r = 0;
+                    const ringAlpha = (1 - r.r / r.maxR) * 0.25;
+                    ctx.beginPath();
+                    ctx.arc(r.x, r.y, r.r, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(56, 189, 248, ${ringAlpha})`;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+
+                // Network Links
+                for (let i = 0; i < networkNodes.length; i++) {
+                    for (let j = i + 1; j < networkNodes.length; j++) {
+                        const dx = networkNodes[i].x - networkNodes[j].x;
+                        const dy = networkNodes[i].y - networkNodes[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 200) {
+                            const lineAlpha = (1 - dist / 200) * 0.18;
+                            ctx.beginPath();
+                            ctx.moveTo(networkNodes[i].x, networkNodes[i].y);
+                            ctx.lineTo(networkNodes[j].x, networkNodes[j].y);
+                            ctx.strokeStyle = `rgba(74, 144, 226, ${lineAlpha})`;
+                            ctx.lineWidth = 0.85;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                // Packets
+                for (const pkt of networkPackets) {
+                    pkt.t += pkt.speed;
+                    if (pkt.t > 1) {
+                        pkt.t = 0;
+                        pkt.n1 = Math.floor(Math.random() * networkNodes.length);
+                        pkt.n2 = Math.floor(Math.random() * networkNodes.length);
+                    }
+                    const n1 = networkNodes[pkt.n1];
+                    const n2 = networkNodes[pkt.n2];
+                    if (n1 && n2) {
+                        const px = n1.x + (n2.x - n1.x) * pkt.t;
+                        const py = n1.y + (n2.y - n1.y) * pkt.t;
+                        ctx.beginPath();
+                        ctx.arc(px, py, 2, 0, Math.PI * 2);
+                        ctx.fillStyle = "#38bdf8";
+                        ctx.fill();
+                    }
+                }
+
+                // Nodes
+                for (const n of networkNodes) {
+                    n.pulse += 0.03;
+                    const glow = Math.sin(n.pulse) * 0.3 + 0.7;
+                    ctx.beginPath();
+                    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(74, 144, 226, ${glow})`;
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+
+            // Main Animation Loop (Zero layout thrashing)
+            function animate() {
+                if (!isSectionVisible) {
+                    animationFrameId = null;
+                    return;
+                }
+
+                ctx.clearRect(0, 0, cachedWidth, cachedHeight);
+
+                // Smooth transition between visual modes
+                if (currentMode !== targetMode) {
+                    modeTransition += 0.04;
+                    if (modeTransition >= 1) {
+                        currentMode = targetMode;
+                        modeTransition = 1;
+                    }
+                }
+
+                const prevAlpha = currentMode === targetMode ? 0 : (1 - modeTransition);
+                const currAlpha = currentMode === targetMode ? 1 : modeTransition;
+
+                if (targetMode === 0) drawCircuits(cachedWidth, cachedHeight, currAlpha);
+                else if (targetMode === 1) drawCodeMatrix(cachedWidth, cachedHeight, currAlpha);
+                else if (targetMode === 2) drawNetworkRadar(cachedWidth, cachedHeight, currAlpha);
+
+                if (prevAlpha > 0) {
+                    if (currentMode === 0) drawCircuits(cachedWidth, cachedHeight, prevAlpha);
+                    else if (currentMode === 1) drawCodeMatrix(cachedWidth, cachedHeight, prevAlpha);
+                    else if (currentMode === 2) drawNetworkRadar(cachedWidth, cachedHeight, prevAlpha);
+                }
+
+                animationFrameId = requestAnimationFrame(animate);
+            }
+
+            // Visibility observer to start/stop loop when section is on/off screen
+            const sectionVisibilityObserver = new IntersectionObserver((entries) => {
+                const entry = entries[0];
+                isSectionVisible = entry.isIntersecting;
+                if (isSectionVisible && !animationFrameId) {
+                    animate();
+                }
+            }, { threshold: 0 });
+
+            sectionVisibilityObserver.observe(servicesSection);
+
+            // --- In-Place Vertical Scroll Stream Controller ---
+            const stepIndicators = document.querySelectorAll("#serviceStepTracker .step-indicator");
+            const showcaseRows = document.querySelectorAll("#servicesVerticalStream .service-showcase-row");
+
+            function activateServiceRow(idx) {
+                targetMode = idx;
+                modeTransition = 0;
+
+                stepIndicators.forEach((btn, i) => {
+                    btn.classList.toggle("active", i === idx);
+                });
+
+                showcaseRows.forEach((row, i) => {
+                    row.classList.toggle("showcase-in-view", i === idx);
+                });
+            }
+
+            // High Precision Scroll Spy for in-place stream
+            const streamObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const idx = parseInt(entry.target.getAttribute("data-service-idx"), 10);
+                        activateServiceRow(idx);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: "-20% 0px -25% 0px",
+                threshold: [0, 0.2]
+            });
+
+            showcaseRows.forEach(row => streamObserver.observe(row));
+
+            // Quick Jump Click Handler with native scrollIntoView
+            stepIndicators.forEach((btn, idx) => {
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const targetRow = showcaseRows[idx];
+                    if (targetRow) {
+                        targetRow.scrollIntoView({ behavior: "smooth", block: "start" });
+                        activateServiceRow(idx);
+                    }
+                });
+            });
+
+            window.addEventListener("resize", resize);
+            resize();
+            animate();
         })();
     </script>
 </body>
